@@ -39,7 +39,7 @@ html:not([lang=ar]) .hero h1{text-transform:none;font-size:22px;letter-spacing:0
 .pb{padding:10px;display:flex;flex-direction:column;gap:4px;flex:1}
 .sheet textarea{width:100%;padding:12px;border:1px solid var(--bd);border-radius:12px;font-size:15px;margin-bottom:8px;background:#ffffff14;color:#fff;font-family:inherit}
 .pdsc{font-size:12px;opacity:.75;margin:4px 0 6px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-#lbc{position:fixed;inset-inline:0;bottom:0;z-index:100;background:#000b;padding:14px 16px 18px;font-size:14px;line-height:1.5;display:none;pointer-events:none}#lb.open~#lbc{display:block}#lbc b{display:block;font-size:16px;margin-bottom:4px}
+#lbc{position:fixed;inset-inline:0;bottom:0;z-index:100;background:linear-gradient(to top,#000a 0,#0005 55%,#0000 100%);text-shadow:0 1px 3px #000,0 0 8px #000a;padding:34px 16px 18px;font-size:14px;line-height:1.5;display:none;pointer-events:none}#lb.open~#lbc{display:block}#lbc b{display:block;font-size:16px;margin-bottom:4px}
 .pn{font-size:14px;font-weight:700;line-height:1.3}.pd{font-size:12px;opacity:.7}
 .old{opacity:.6;font-weight:600;font-size:13px;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:#ff6b6b}.bdg{direction:ltr;unicode-bidi:isolate;display:inline-block;background:#ef4444;color:#fff;font-size:12px;font-weight:800;border-radius:8px;padding:2px 7px;margin-inline-start:4px;white-space:nowrap}.pr .nw{font-size:18px}.pr{font-size:17px;font-weight:800;color:#5dff9a;margin-top:auto}
 .add{margin-top:6px;background:linear-gradient(90deg,var(--g),var(--g2));color:#fff;border:0;border-radius:12px;padding:9px;font-size:14px;font-weight:700;cursor:pointer}
@@ -150,35 +150,14 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
   <h2 data-i="admin"></h2>
   <div id="alogin"><div id="ghbox"><div class="note" style="margin:0 0 10px" data-i="ghnote"></div><button class="send" id="ghbtn" style="background:#24292f" data-i="ghbtn"></button></div><div id="pinbox" style="display:none"><button type="button" class="send" id="pkunl" style="background:linear-gradient(135deg,#4ade80,#22d3ee);color:#04210f" data-i="pkUnlock"></button><div class="note" id="pinhint" style="margin:0 0 8px"></div><input id="pin" type="password"><button class="send" id="pinok" style="background:var(--g)" data-i="enter"></button></div></div>
   <div id="apanel" style="display:none">
-    <button class="btn2" id="anew" data-i="addp"></button>
-    <button type="button" class="btn2" id="wmall" style="width:100%;margin:8px 0"></button><div id="wmst" style="font-size:12px;opacity:.8;margin-bottom:6px"></div><div id="alist"></div>
-    <div style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="visT"></span>
-      <div id="vis"><div class="vc"><b id="v1">–</b><span data-i="visD"></span></div><div class="vc"><b id="v2">–</b><span data-i="visW"></span></div><div class="vc"><b id="v3">–</b><span data-i="visA"></span></div></div>
-      <div id="vbars"></div><div style="height:14px"></div><div id="vcn"></div>
-    </div>
-    <div style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="pkT"></span>
-      <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="pkH"></div>
-      <button type="button" class="btn2" id="pkon" style="width:100%" data-i="pkOn"></button><div id="pkl"></div>
-    </div>
-    <div style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="aiAT"></span>
-      <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="aiAH"></div>
-      <button type="button" class="btn2" id="aitog" style="width:100%"></button>
-    </div>
-    <div style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="pushT"></span>
-      <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="pushH"></div>
-      <div style="display:flex;gap:8px"><button type="button" class="btn2" id="pushon" style="flex:1" data-i="pushOn"></button><button type="button" class="btn2" id="pushtest" style="flex:1" data-i="pushTest"></button></div>
-    </div>
-    <div style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" id="fint" style="font-size:15px;font-weight:800;opacity:1;color:#4ade80">💰</span><div id="fin"></div></div>
-    <div style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="ordt"></span> <button type="button" class="btn2" id="oref" style="width:auto;padding:4px 12px;font-size:13px" data-i="ordref"></button>
+    <div id="wmst" style="font-size:12px;opacity:.8;margin-bottom:6px"></div>
+    <div class="atab" id="at_orders" style="display:none"><div class="hint" id="ah_orders"></div>    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="ordt"></span> <button type="button" class="btn2" id="oref" style="width:auto;padding:4px 12px;font-size:13px" data-i="ordref"></button>
       <div class="lbl" style="margin-top:8px" data-i="ordtop"></div><div id="otop"></div>
       <div id="ol"></div>
     </div>
-    <div style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="bgt"></span>
-      <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="bgh"></div>
-      <div id="bgl"></div>
-      <div style="display:flex;gap:8px"><button type="button" class="btn2" id="bgcam" style="flex:1" data-i="takecam"></button><button type="button" class="btn2" id="bggal" style="flex:1" data-i="pickgal"></button></div>
-      <input id="bgf1" type="file" accept="image/*" capture="environment" style="display:none"><input id="bgf2" type="file" accept="image/*" multiple style="display:none">
-    </div>
+</div>
+    <div class="atab" id="at_products" style="display:none"><div class="hint" id="ah_products"></div>    <button class="btn2" id="anew" data-i="addp"></button>
+    <button type="button" class="btn2" id="wmall" style="width:100%;margin:8px 0"></button><div id="alist"></div>
     <div id="aform" style="display:none;margin-top:10px">
       <span class="lbl" data-i="cat"></span><select id="fc"></select><div id="fsw" style="display:none"><span class="lbl" data-i="subl"></span><select id="fs"></select></div>
       <span class="lbl">العربية</span><input id="fna">
@@ -191,12 +170,56 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
       <span class="lbl" data-i="photo"></span><div style="display:flex;gap:8px;margin-bottom:6px"><button type="button" class="btn2" id="bcam" style="flex:1" data-i="takecam"></button><button type="button" class="btn2" id="bgal" style="flex:1" data-i="pickgal"></button></div><input id="fcam" type="file" accept="image/*" capture="environment" hidden><input id="ff" type="file" accept="image/*" hidden><div class="note" id="pname" style="margin:0 0 8px"></div>
       <div style="display:flex;gap:8px"><button class="send" id="fsave" style="background:var(--g)" data-i="save"></button><button class="btn2" id="fcancel" data-i="cancelb"></button></div>
     </div>
-    <hr style="border:0;border-top:1px solid var(--bd);margin:14px 0">
+</div>
+    <div class="atab" id="at_fin" style="display:none"><div class="hint" id="ah_fin"></div>    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" id="fint" style="font-size:15px;font-weight:800;opacity:1;color:#4ade80">💰</span><div id="fin"></div></div>
+</div>
+    <div class="atab" id="at_stats" style="display:none"><div class="hint" id="ah_stats"></div>    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="visT"></span>
+      <div id="vis"><div class="vc"><b id="v1">–</b><span data-i="visD"></span></div><div class="vc"><b id="v2">–</b><span data-i="visW"></span></div><div class="vc"><b id="v3">–</b><span data-i="visA"></span></div></div>
+      <div id="vbars"></div><div style="height:14px"></div><div id="vcn"></div>
+    </div>
+</div>
+    <div class="atab" id="at_set" style="display:none"><div class="hint" id="ah_set"></div><div class="sec" style="margin-top:0;padding-top:0"><span class="lbl" id="wahdr"></span>    
     <span class="lbl" data-i="wa"></span><input id="swa" inputmode="tel">
     <button class="btn2" id="swasave" data-i="save"></button>
+  </div>    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="bgt"></span>
+      <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="bgh"></div>
+      <div id="bgl"></div>
+      <div style="display:flex;gap:8px"><button type="button" class="btn2" id="bgcam" style="flex:1" data-i="takecam"></button><button type="button" class="btn2" id="bggal" style="flex:1" data-i="pickgal"></button></div>
+      <input id="bgf1" type="file" accept="image/*" capture="environment" style="display:none"><input id="bgf2" type="file" accept="image/*" multiple style="display:none">
+    </div>
+    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="pushT"></span>
+      <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="pushH"></div>
+      <div style="display:flex;gap:8px"><button type="button" class="btn2" id="pushon" style="flex:1" data-i="pushOn"></button><button type="button" class="btn2" id="pushtest" style="flex:1" data-i="pushTest"></button></div>
+    </div>
+    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="pkT"></span>
+      <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="pkH"></div>
+      <button type="button" class="btn2" id="pkon" style="width:100%" data-i="pkOn"></button><div id="pkl"></div>
+    </div>
+    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="aiAT"></span>
+      <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="aiAH"></div>
+      <button type="button" class="btn2" id="aitog" style="width:100%"></button>
+    </div>
+</div>
+    <div id="atabs"></div>
   </div>
 </div></div>
 
+<style>#atabs{position:sticky;bottom:-18px;margin:14px -18px -18px;padding:6px 4px calc(8px + env(safe-area-inset-bottom));background:#0a2a36;border-top:1px solid var(--bd);display:flex;gap:2px;z-index:5}#atabs button{flex:1;background:none;border:0;color:#fff;opacity:.6;font:inherit;font-size:12px;font-weight:700;padding:6px 2px;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}#atabs button b{font-size:20px;line-height:1}#atabs button.on{opacity:1;background:linear-gradient(135deg,#064e3b,#0b3b4c);box-shadow:inset 0 0 0 1px #4ade80}.atab .hint{font-size:13px;opacity:.85;background:#ffffff10;border-radius:12px;padding:8px 12px;margin:2px 0 10px;line-height:1.5}.atab>.hint+.sec{margin-top:0!important;border-top:0!important;padding-top:0!important}</style>
+<script>
+(function(){var TT={
+ar:{o:["📦","الطلبات","طلبات الزبناء: أكّد الطلب، بدّل حالته (قيد الشحن / تم التسليم)، سجّل الموزع، وشوف المنتجات الأكثر طلباً."],p:["🛍️","المنتجات","زيد، عدّل أو حذف المنتجات: الأسماء، الأثمنة، الصور والوصف. هنا كذلك زر اللوغو على الصور."],f:["💰","المالية","المبيعات، التكلفة والربح ديال المتجر."],s:["📊","الإحصائيات","شحال من زائر دخل للمتجر: اليوم، هاد الأسبوع والمجموع."],t:["⚙️","الإعدادات","رقم واتساب الطلبات، خلفية المتجر، الإشعارات، البصمة، ومساعد الذكاء الاصطناعي."],wa:"رقم واتساب اللي كيوصلو الطلبات"},
+fr:{o:["📦","Commandes","Commandes des clients : confirmer, changer le statut (en livraison / livrée), noter le livreur, voir les produits les plus commandés."],p:["🛍️","Produits","Ajouter, modifier ou supprimer des produits : noms, prix, photos et description. Le bouton logo sur les photos est ici."],f:["💰","Finances","Ventes, coûts et bénéfice de la boutique."],s:["📊","Statistiques","Nombre de visiteurs : aujourd'hui, cette semaine et au total."],t:["⚙️","Réglages","Numéro WhatsApp des commandes, fond de la boutique, notifications, empreinte et assistant IA."],wa:"Numéro WhatsApp qui reçoit les commandes"},
+en:{o:["📦","Orders","Customer orders: confirm, change status (shipped / delivered), set the courier, and see the most ordered products."],p:["🛍️","Products","Add, edit or delete products: names, prices, photos and description. The logo-on-photos button is here too."],f:["💰","Finance","Sales, costs and profit of the shop."],s:["📊","Stats","How many visitors came: today, this week and total."],t:["⚙️","Settings","Orders WhatsApp number, store background, notifications, fingerprint and the AI assistant."],wa:"WhatsApp number that receives orders"}};
+var K=[["orders","o"],["products","p"],["fin","f"],["stats","s"],["set","t"]],cur=null,cl="";
+function tab(k){cur=k;try{sessionStorage.setItem("sm_atab",k)}catch(e){}draw(1)}
+function draw(f){var L=TT[lang]||TT.ar;if(!f&&cl==lang&&cur===window.__ac)return;cl=lang;window.__ac=cur;
+  K.forEach(function(x){var a=document.getElementById("at_"+x[0]);if(a)a.style.display=x[0]==cur?"":"none";var h=document.getElementById("ah_"+x[0]);if(h)h.textContent=L[x[1]][2]});
+  var bar=document.getElementById("atabs");bar.innerHTML=K.map(function(x){return '<button type="button" data-t="'+x[0]+'" class="'+(x[0]==cur?"on":"")+'"><b>'+L[x[1]][0]+'</b>'+L[x[1]][1]+'</button>'}).join("");
+  var w=document.getElementById("wahdr");if(w)w.textContent=L.wa}
+document.getElementById("atabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)tab(b.dataset.t)});
+try{cur=sessionStorage.getItem("sm_atab")}catch(e){}if(!cur||!document.getElementById("at_"+cur))cur="orders";
+window.admTab=tab;draw(1);setInterval(function(){draw(0);var q=document.getElementById("ib"),o=document.getElementById("aov");if(q)q.style.visibility=(o&&o.classList.contains("open"))?"hidden":""},1000);
+})();</script>
 <script>
 var I={
 ar:{buy:"اشتري الآن",dph:"إذا خفّضت السعر في الخانة أعلاه، يُحفظ السعر القديم تلقائياً ويظهر مشطوباً مع نسبة التخفيض.",dpl:"السعر بعد التخفيض (اختياري) أو النسبة % في الخانة الصغيرة",dpc:"إلغاء التخفيض",shareL:"شارك المتجر",shareT:"امسح الكود بهاتف صديقك ليفتح المتجر",shareB:"مشاركة",copyB:"نسخ الرابط",closeB:"إغلاق",copiedM:"تم نسخ الرابط ✓",vNone:"لا زوار بعد. ستظهر الأرقام والدول هنا عند أول زيارة.",visC:"الدول",vMA:"المغرب",vEU:"أوروبا",vOT:"دول أخرى",vUN:"غير معروف",pkT:"فتح بالبصمة",pkH:"يمكنك فتح لوحة الإدارة ببصمة الإصبع أو الوجه بدل كتابة الرمز. الرمز يبقى متاحاً دائماً كاحتياط.",pkOn:"تفعيل البصمة على هذا الهاتف",pkUnlock:"🔓 فتح بالبصمة",pkAsk:"أدخل رمز الإدارة لتفعيل البصمة:",pkOk:"تم تفعيل البصمة ✓",pkFail:"لم تنجح البصمة. استعمل الرمز.",pkNone:"لا توجد أجهزة مسجلة.",pkDel:"حذف",aiN:"مساعد Store Me",aiPh:"اكتب سؤالك…",aiHi:"سلام! أنا مساعد Store Me. سولني على أي منتج أو ثمن وغادي نعاونك تزيد للسلة.",aiSend:"إرسال",aiAdd:"أضف للسلة",aiBusy:"المساعد مشغول دابا. يمكنك الطلب مباشرة عبر واتساب.",aiLim:"وصلتي للحد الأقصى من الأسئلة دابا. جرّب من بعد أو تواصل معنا عبر واتساب.",aiNote:"المساعد آلي وقد يخطئ. أكّد الطلب مع المتجر عبر واتساب.",aiAT:"مساعد الذكاء الاصطناعي",aiAH:"يجيب الزبناء على أسئلة المنتجات والأثمنة ويساعدهم يزيدو للسلة. مجاني وبحد أقصى للاستعمال.",aiOnB:"✓ المساعد مفعّل (اضغط لإيقافه)",aiOffB:"✕ المساعد متوقف (اضغط لتفعيله)",aiThink:"…",visT:"الزوار",visD:"اليوم",visW:"هذا الأسبوع",visA:"المجموع",pushT:"إشعارات الطلبات",pushH:"عند وصول طلب جديد يصلك إشعار على هذا الهاتف. على آيفون يجب تثبيت التطبيق على الشاشة الرئيسية أولاً.",pushOn:"🔔 تفعيل الإشعارات",pushTest:"إشعار تجريبي",pnosup:"هذا المتصفح لا يدعم الإشعارات. على آيفون: ثبّت التطبيق على الشاشة الرئيسية وافتحه منها.",pdeny:"لم يتم السماح بالإشعارات. فعّلها من إعدادات الهاتف للتطبيق.",pok:"تم التفعيل ✓ سيصلك إشعار عند كل طلب جديد.",ptest:"أُرسل إشعار تجريبي.",ordt:"الطلبات",ordref:"تحديث",ordtop:"الأكثر طلباً",ordnone:"لا توجد طلبات بعد",ordpcs:"قطعة",bgt:"صور خلفية الصفحة الرئيسية",bgh:"تظهر بحركة بطيئة خلف العنوان. الحد الأقصى 8 صور. استعمل ▲▼ للترتيب و✕ للحذف.",bgmax:"الحد الأقصى 8 صور",ibt:"حمّل تطبيق المتجر على هاتفك",instb:"ثبّت",okb:"حسناً",iosh:"افتح الموقع في Safari (وليس داخل متصفح واتساب). اضغط على «…» أسفل الشاشة، ثم «مشاركة»، ثم مرّر للأسفل واختر «إضافة إلى الشاشة الرئيسية»، ثم «إضافة».",iosw:"لتثبيت التطبيق: افتح هذا الرابط في Safari (وليس داخل واتساب). انسخ الرابط وافتحه في Safari ثم اتبع الخطوات.",inst:"📲 ثبّت التطبيق",insthow:"لتثبيت التطبيق: افتح قائمة المتصفح (⋮) ثم اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».",descl:"الوصف (يظهر للزبناء)",aidraft:"✨ اكتب لي وصفاً بالذكاء الاصطناعي (مسودة)",needname:"اكتب اسم المنتج أولاً",aidone:"تمت المسودة. راجعها وعدّلها ثم احفظ.",aifail:"تعذّر إنشاء الوصف الآن",chg:"شواحن",cab:"كابلات",bt:"سماعات بلوتوث",subl:"النوع",pacc:"لوازم الهاتف",takecam:"📷 التقاط صورة بالكاميرا",pickgal:"🖼️ اختيار من المعرض",ghbtn:"الدخول بحساب GitHub",ghnote:"الخطوة 1: سجّل الدخول بحساب GitHub الخاص بصاحب المتجر، ثم تكتب الرمز السري.",firstset:"أول مرة: اختر رمزاً سرياً (6 أحرف أو أكثر) لحماية إدارة المتجر. احفظه جيداً.",short:"الرمز قصير جداً (6 على الأقل)",wrong:"رمز خاطئ أو حساب غير مصرّح",home:"الرئيسية",shop:"المنتجات",catn:"الأقسام",contact:"اتصل بنا",h1:"متجرك للحواسيب والكاميرات وإكسسوارات الهاتف",h2:"اختر منتجاتك وأرسل الطلب بضغطة واحدة عبر واتساب، ونتصل بك للتأكيد.",cta:"تسوّق الآن",search:"ابحث عن منتج...",all:"الكل",pc:"حواسيب",cam:"كاميرات مراقبة",print:"طابعات",acc:"ملحقات",add:"+ أضف للسلة",added:"✓ تمت الإضافة",cart:"سلة الطلبات",total:"المجموع",send:"إرسال الطلب عبر واتساب",note:"يصل طلبك مباشرة إلى صاحب المحل ويتصل بك للتأكيد. الدفع عند الاستلام.",name:"الاسم",phone:"رقم الهاتف",addr:"المدينة والعنوان",empty:"السلة فارغة",none:"لا توجد نتائج",fill:"املأ الاسم والهاتف والعنوان",cur:"درهم",foot:"Store Me",admin:"إدارة المتجر",enter:"دخول",pin:"الرمز السري",addp:"+ منتج جديد",cat:"القسم",price:"السعر (درهم)",photo:"الصورة",save:"حفظ",cancelb:"إلغاء",edit:"تعديل",del:"حذف",wa:"رقم واتساب الطلبات (مثال 2126XXXXXXXX)",order:"طلب جديد من Store Me"},
@@ -637,7 +660,7 @@ var ra=window.renderAdmin;
 window.WMTRY=0;function auto(){try{var ov=document.getElementById("aov");if(!PASS||window.WMRUN||window.WMTRY>=2||!ov||!ov.classList.contains("open"))return;if(!todo().length)return;window.WMTRY++;window.WMAUTO=1;document.getElementById("wmall").click()}catch(e){}}
 setInterval(function(){lab();auto()},1500);lab();
 })();</script>
-<script>var SMB="27";
+<script>var SMB="30";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 </body>

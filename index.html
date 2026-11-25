@@ -241,8 +241,8 @@ function adminOpen(){
   $("ghbox").style.display=TOK?"none":"block";$("pinbox").style.display=TOK?"block":"none";
   if(TOK)api("rpc/admin_is_set",{}).then(function(v){firstTime=!v;$("pinhint").textContent=firstTime?T("firstset"):""}).catch(function(){});
 }
-(function(){var n=0,t=0,lg=document.querySelector(".logo");lg.style.cursor="pointer";lg.style.userSelect="none";lg.style.webkitUserSelect="none";lg.style.webkitTouchCallout="none";
-lg.addEventListener("click",function(){var now=Date.now();if(now-t>3000)n=0;t=now;n++;if(n>=5){n=0;adminOpen()}})})();
+(function(){var n=0,t=0,lg=document.querySelector(".logo");lg.style.cursor="pointer";lg.style.touchAction="manipulation";lg.style.userSelect="none";lg.style.webkitUserSelect="none";lg.style.webkitTouchCallout="none";
+lg.addEventListener("click",function(){var now=Date.now();if(now-t>700)n=0;t=now;n++;if(n>=2){n=0;adminOpen()}})})();
 if(location.hash.replace("#","").split("&")[0]=="admin")setTimeout(adminOpen,300);
 $("bcam").onclick=function(){$("ff").value="";$("fcam").click()};
 $("bgal").onclick=function(){$("fcam").value="";$("ff").click()};
@@ -326,7 +326,7 @@ document.getElementById("lbx").onclick=close;lb.onclick=function(e){if(e.target=
 document.addEventListener("keydown",function(e){if(e.key=="Escape")close()});
 });
 
-var VER="2026-11-25-f";
+var VER="2026-11-25-g";
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(function(r){r.update()}).catch(function(){});var _rl=false;navigator.serviceWorker.addEventListener("controllerchange",function(){if(_rl||!sessionStorage.getItem("sm_swseen")){sessionStorage.setItem("sm_swseen","1");return}_rl=true;location.reload()})}
 fetch(location.pathname+"?v="+Date.now(),{cache:"reload"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var VER="([^"]+)"/);if(m&&m[1]!==VER&&!sessionStorage.getItem("sm_vr")){sessionStorage.setItem("sm_vr","1");location.reload()}}).catch(function(){});
 var DIP=null,isApp=window.matchMedia&&matchMedia("(display-mode: standalone)").matches||navigator.standalone;

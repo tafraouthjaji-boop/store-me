@@ -210,7 +210,7 @@ function lsset(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){alert
 var H=location.hash, lang=(H.match(/lang=(ar|fr|en)/)||[])[1]||ls("sm_lang","ar");
 document.addEventListener("DOMContentLoaded",function(){});
 var SB="https://stkouxoctmmfshaumbec.supabase.co", KEY="sb_publishable_PhYxTNmEHoxKw9s3ya75cA_DAtVUEas";
-var OP=0,P=[], cart=ls("sm_cart",{}), cat="all", WA="212664874406", editing=null, PASS="", TOK=sessionStorage.getItem("sm_tok")||"", AUTOADMIN=false;
+var LOADED=false,LDM={ar:{ld:"جاري التحميل…",er:"تعذر تحميل المنتجات. تحقق من الاتصال.",rt:"إعادة المحاولة"},fr:{ld:"Chargement…",er:"Impossible de charger les produits. Vérifiez la connexion.",rt:"Réessayer"},en:{ld:"Loading…",er:"Could not load products. Check your connection.",rt:"Retry"}},OP=0,P=[], cart=ls("sm_cart",{}), cat="all", WA="212664874406", editing=null, PASS="", TOK=sessionStorage.getItem("sm_tok")||"", AUTOADMIN=false;
 if(location.hash.indexOf("access_token=")>-1){
   var hp=new URLSearchParams(location.hash.slice(1));TOK=hp.get("access_token")||"";
   if(TOK){sessionStorage.setItem("sm_tok",TOK);AUTOADMIN=true}
@@ -223,11 +223,12 @@ function api(path,body){
   return fetch(SB+"/rest/v1/"+path,o).then(function(r){return r.text().then(function(t){var j=null;try{j=JSON.parse(t)}catch(e){}if(!r.ok){if(r.status==401){TOK="";sessionStorage.removeItem("sm_tok")}throw new Error((j&&(j.message||j.msg))||t)}return j})});
 }
 function load(){
+  if(!LOADED)$("grid").innerHTML='<div class="empty">'+LDM[lang].ld+'</div>';
   return Promise.all([api("products?select=id,data&order=id"),api("settings?select=key,value&key=neq.bg")]).then(function(a){
-    P=a[0].map(function(r){var d=r.data;d.id=r.id;return d});
+    P=a[0].map(function(r){var d=r.data;d.id=r.id;return d});LOADED=true;
     a[1].forEach(function(x){if(x.key=="wa")WA=x.value;if(x.key=="ai")AIOFF=x.value=="off"});aiShow();
     renderGrid();renderCart();renderAdmin();
-  }).catch(function(){$("grid").innerHTML='<div class="empty">⚠</div>'});
+  }).catch(function(){if(!LOADED)$("grid").innerHTML='<div class="empty">\u26A0 '+LDM[lang].er+'<br><button type="button" class="btn2" onclick="load()" style="margin-top:10px">'+LDM[lang].rt+'</button></div>'});
 }
 function T(k){return I[lang][k]}
 function ep(p){return p.dp>0&&p.dp<p.p?p.dp:p.p}
@@ -253,7 +254,7 @@ function thumb(p){return p.img?'style="background-image:url('+p.img+')"':''}
 function renderGrid(){
   var s=$("q").value.trim().toLowerCase();
   $("grid").innerHTML=P.filter(function(p){return (cat=="all"||p.c==cat)&&(cat!="pacc"||sub=="all"||p.s==sub)&&(!s||(p.n.ar+p.n.fr+p.n.en).toLowerCase().indexOf(s)>-1)}).map(function(p){
-    return '<div class="p"><div class="img" '+thumb(p)+'>'+(p.img?"":ico(p))+'</div><div class="pb"><div class="pn">'+nm(p)+'</div>'+(dsc(p)?'<div class="pdsc">'+esc(dsc(p))+'</div>':'')+'<div class="pr">'+ph(p)+'</div><button class="add" data-id="'+p.id+'">'+T("add")+'</button></div></div>'}).join("")||'<div class="empty">'+T("none")+'</div>';
+    return '<div class="p"><div class="img" '+thumb(p)+'>'+(p.img?"":ico(p))+'</div><div class="pb"><div class="pn">'+nm(p)+'</div>'+(dsc(p)?'<div class="pdsc">'+esc(dsc(p))+'</div>':'')+'<div class="pr">'+ph(p)+'</div><button class="add" data-id="'+p.id+'">'+T("add")+'</button></div></div>'}).join("")||'<div class="empty">'+(LOADED?T("none"):LDM[lang].ld)+'</div>';
 }
 function items(){return P.filter(function(p){return cart[p.id]})}
 function total(){return items().reduce(function(a,p){return a+ep(p)*cart[p.id]},0)}
@@ -582,7 +583,7 @@ function view(h){document.getElementById("tkc").innerHTML=h}
 function frame(inner){return '<h3>'+Y("ttl")+'</h3>'+inner+'<button type="button" class="btn2" id="tkx" style="width:100%;margin-top:12px">'+Y("close")+'</button>'}
 function form(msg,val){var rc=codes();view(frame('<div class="lbl">'+Y("sub")+'</div><input id="tki" maxlength="9" autocomplete="off" placeholder="'+Y("ph")+'" value="'+(val||"")+'"><button type="button" class="btn2" id="tkps" style="width:100%;margin-top:6px">'+Y("pst")+'</button><button type="button" class="send" id="tkg" style="width:100%;margin-top:8px;background:var(--g)">'+Y("go")+'</button>'+(msg?'<div style="color:#fbbf24;margin-top:8px;font-size:14px">'+msg+'</div>':'')+(pend().length?'<div style="margin-top:10px;border:1px solid #fbbf24;border-radius:12px;padding:8px;text-align:center;font-size:14px">'+Y("pn")+'<button type="button" class="btn2" id="tkck" style="width:100%;margin-top:6px">'+Y("chk")+'</button><div id="tkmsg" style="color:#fbbf24;font-size:13px;margin-top:4px"></div></div>':"")+(rc.length?'<div class="lbl" style="margin-top:10px">'+Y("rec")+'</div>'+rc.map(function(c){return '<span class="tkch" data-c="'+c+'">'+c+'</span>'}).join(""):"")))}
 function look(c){c=String(c||"").trim().toUpperCase();if(!/^SM-[A-Z0-9]{6}$/.test(c)){form(Y("nf"),c);return}
-  fetch(SB+"/rest/v1/rpc/track_order",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({c:c,b:AIB})}).then(function(r){return r.json()}).then(function(o){
+  var _ac=window.AbortController?new AbortController():null;if(_ac)setTimeout(function(){_ac.abort()},12000);fetch(SB+"/rest/v1/rpc/track_order",{method:"POST",signal:_ac?_ac.signal:undefined,headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({c:c,b:AIB})}).then(function(r){return r.json()}).then(function(o){
     if(o&&o.s=="limit"){form(Y("lim"),c);return}
     if(!o||!o.s){dropCode(c);bar();form(Y("nf"),c);return}
     var h='<div style="text-align:center;font-weight:800;letter-spacing:2px;color:#fbbf24;direction:ltr">'+c+'</div>';
@@ -592,7 +593,7 @@ function look(c){c=String(c||"").trim().toUpperCase();if(!/^SM-[A-Z0-9]{6}$/.tes
     if(o.cr&&(o.cr.n||o.cr.p)){h+='<div style="margin-top:10px;border:1px solid #a78bfa;background:#a78bfa22;border-radius:14px;padding:10px;text-align:center"><div style="font-size:12px;opacity:.85">'+Y("cr")+'</div>'+(o.cr.n?'<div style="font-weight:800;font-size:16px">'+esc(o.cr.n)+'</div>':'')+(o.cr.p?'<div style="direction:ltr;font-weight:800;font-size:18px;letter-spacing:1px">'+esc(o.cr.p)+'</div><a href="tel:'+esc(o.cr.p)+'" style="display:block;margin-top:6px;background:#22c55e;color:#06222f;border-radius:10px;padding:8px;font-weight:800;text-decoration:none">'+Y("cl")+'</a>':'')+'</div>'}
     h+='<div style="opacity:.7;font-size:12px;margin-top:6px">'+new Date(o.u||o.t).toLocaleString(lang=="ar"?"ar-MA-u-nu-latn":lang,{dateStyle:"short",timeStyle:"short"})+'</div>';
     h+='<button type="button" class="btn2" id="tkb" style="width:100%;margin-top:10px">←</button>';view(frame(h))}).catch(function(){form(Y("err"),c)})}
-window.tkOpen=function(c){document.getElementById("tkov").classList.add("open");if(c)look(c);else form("","")};
+window.tkOpen=function(c){document.getElementById("tkov").classList.add("open");if(c){view(frame('<div style="text-align:center;padding:18px;opacity:.85">'+LDM[lang].ld+'</div>'));look(c)}else form("","")};
 window.tkDone=function(c){document.getElementById("tkov").classList.add("open");view('<div style="text-align:center"><span style="display:inline-flex;width:44px;height:44px;border-radius:50%;background:#22c55e;align-items:center;justify-content:center;font-size:26px;font-weight:900">✓</span></div><h3 style="text-align:center">'+Y("oc2")+'</h3><div class="lbl" style="text-align:center">'+Y("ocs")+'</div><div id="tkcode" data-c="'+c+'" style="text-align:center;font-size:34px;font-weight:900;letter-spacing:4px;color:#fbbf24;margin:10px 0;padding:14px 8px;direction:ltr;border:2px dashed #fbbf24;border-radius:16px;background:#fbbf2418;cursor:pointer;user-select:all;-webkit-user-select:all">'+c+'</div><button type="button" class="send" id="tkcp" data-c="'+c+'" style="width:100%;background:var(--g);font-size:17px">'+Y("cp")+'</button><div style="margin-top:12px;background:#ffffff12;border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.6"><b>'+Y("hw")+'</b><div><b class="tkn">1</b>'+Y("h1")+'</div><div><b class="tkn">2</b>'+Y("h2")+'</div><div><b class="tkn">3</b>'+Y("h3")+'</div><div style="opacity:.75;font-size:12px;margin-top:4px">'+Y("h4")+'</div></div><button type="button" class="btn2" id="tkt" data-c="'+c+'" style="width:100%;margin-top:8px">'+Y("tr")+'</button><button type="button" class="btn2" id="tkx" style="width:100%;margin-top:8px">'+Y("close")+'</button>')};
 ov.addEventListener("click",function(e){var t=e.target;if(t==ov||t.id=="tkx"){ov.classList.remove("open");return}
   if(t.id=="tkck"){tkCheck(false)}else if(t.id=="tkps"){if(navigator.clipboard&&navigator.clipboard.readText)navigator.clipboard.readText().then(function(x){var m=String(x||"").toUpperCase().match(/SM-[A-Z0-9]{6}/);document.getElementById("tki").value=m?m[0]:String(x||"").trim().slice(0,9)}).catch(function(){document.getElementById("tki").focus()});else document.getElementById("tki").focus()}else if(t.id=="tkg")look(document.getElementById("tki").value);else if(t.id=="tkb")form("","");else if(t.id=="tkt")look(t.dataset.c);else if(t.dataset&&t.dataset.c&&t.className=="tkch")look(t.dataset.c);
@@ -606,7 +607,7 @@ bar();document.getElementById("lang").addEventListener("click",function(){setTim
 document.getElementById("lbc").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;e.stopPropagation();
   if(b.dataset.la){var id=b.dataset.la;cart[id]=(cart[id]||0)+1;renderCart();b.textContent=T("added");setTimeout(function(){b.textContent=T("add")},900)}
   else if(b.dataset.lbuy){var id=b.dataset.lbuy;cart[id]=Math.max(cart[id]||0,1);renderCart();document.getElementById("lbx").click();$("ov").classList.add("open");setTimeout(function(){try{$("name").focus()}catch(x){}},300)}});
-</script><script>var SMB="15";
+</script><script>var SMB="16";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 </body>

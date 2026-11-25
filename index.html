@@ -606,5 +606,8 @@ bar();document.getElementById("lang").addEventListener("click",function(){setTim
 document.getElementById("lbc").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;e.stopPropagation();
   if(b.dataset.la){var id=b.dataset.la;cart[id]=(cart[id]||0)+1;renderCart();b.textContent=T("added");setTimeout(function(){b.textContent=T("add")},900)}
   else if(b.dataset.lbuy){var id=b.dataset.lbuy;cart[id]=Math.max(cart[id]||0,1);renderCart();document.getElementById("lbx").click();$("ov").classList.add("open");setTimeout(function(){try{$("name").focus()}catch(x){}},300)}});
-</script></body>
+</script><script>var SMB="15";
+(function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
+setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
+</body>
 </html>

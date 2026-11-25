@@ -273,7 +273,9 @@ document.getElementById("lbx").onclick=close;lb.onclick=function(e){if(e.target=
 document.addEventListener("keydown",function(e){if(e.key=="Escape")close()});
 });
 
-if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){});
+var VER="2026-11-25-c";
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(function(r){r.update()}).catch(function(){});var _rl=false;navigator.serviceWorker.addEventListener("controllerchange",function(){if(_rl||!sessionStorage.getItem("sm_swseen")){sessionStorage.setItem("sm_swseen","1");return}_rl=true;location.reload()})}
+fetch(location.pathname+"?v="+Date.now(),{cache:"reload"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var VER="([^"]+)"/);if(m&&m[1]!==VER&&!sessionStorage.getItem("sm_vr")){sessionStorage.setItem("sm_vr","1");location.reload()}}).catch(function(){});
 var DIP=null,isApp=window.matchMedia&&matchMedia("(display-mode: standalone)").matches||navigator.standalone;
 window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();DIP=e});
 window.addEventListener("appinstalled",function(){DIP=null;$("inst").style.display="none"});

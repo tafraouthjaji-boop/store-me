@@ -112,7 +112,7 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
 #shc{background:#fff;border-radius:22px;padding:18px;width:min(86vw,340px);box-shadow:0 10px 40px #000a}#shc svg{width:100%;height:auto;display:block}
 #sht{color:#fff;font-weight:800;font-size:20px;margin:16px 0 4px;text-align:center}#shu{color:#7dd3fc;font-size:13px;direction:ltr;margin-bottom:14px;word-break:break-all;text-align:center}
 #sha{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}#sha button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;font-size:15px;cursor:pointer;background:#4ade80;color:#04210f}#sha button.g{background:#fff2;color:#fff}
-#ol .or .stx button{position:static;width:auto}#ol .or .stx{margin-top:8px}.lbp{font-size:17px;font-weight:800;color:#5dff9a;margin:6px 0}.lba{display:flex;gap:8px;margin-top:8px;pointer-events:auto}.lba button{flex:1;margin:0;padding:12px 8px;font-size:15px;pointer-events:auto}.buy{background:#f59e0b;color:#1a1200;border:0;border-radius:12px;font-weight:800;cursor:pointer}</style>
+#ol .or .stx button{position:static;width:auto}#ol .or .stx{margin-top:8px}.lbp{font-size:17px;font-weight:800;color:#5dff9a;margin:6px 0}.lba{display:flex;gap:8px;margin-top:8px;pointer-events:auto}.lba button{flex:1;margin:0;padding:12px 8px;font-size:15px;pointer-events:auto}.buy{background:#f59e0b;color:#1a1200;border:0;border-radius:12px;font-weight:800;cursor:pointer}#phone:not(:placeholder-shown){direction:ltr;unicode-bidi:plaintext}html[dir=rtl] #phone:not(:placeholder-shown){text-align:right}</style>
 </head>
 <body>
 <nav>
@@ -142,7 +142,6 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
   <div class="tot"><span data-i="total"></span><span id="total"></span></div>
   <input id="name"><input id="phone" inputmode="tel"><input id="addr">
   <button class="send" id="send" data-i="send"></button>
-  <button type="button" class="btn2" id="trcart" style="width:100%;margin-top:8px"></button>
   <div class="note" data-i="note"></div>
 </div></div>
 
@@ -607,7 +606,7 @@ bar();document.getElementById("lang").addEventListener("click",function(){setTim
 document.getElementById("lbc").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;e.stopPropagation();
   if(b.dataset.la){var id=b.dataset.la;cart[id]=(cart[id]||0)+1;renderCart();b.textContent=T("added");setTimeout(function(){b.textContent=T("add")},900)}
   else if(b.dataset.lbuy){var id=b.dataset.lbuy;cart[id]=Math.max(cart[id]||0,1);renderCart();document.getElementById("lbx").click();$("ov").classList.add("open");setTimeout(function(){try{$("name").focus()}catch(x){}},300)}});
-</script><script>var SMB="16";
+</script><script>var SMB="17";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 </body>

@@ -603,7 +603,7 @@ function look(c){c=String(c||"").trim().toUpperCase();if(!/^SM-[A-Z0-9]{6}$/.tes
   var _ac=window.AbortController?new AbortController():null;if(_ac)setTimeout(function(){_ac.abort()},12000);fetch(SB+"/rest/v1/rpc/track_order",{method:"POST",signal:_ac?_ac.signal:undefined,headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({c:c,b:AIB})}).then(function(r){return r.json()}).then(function(o){
     if(o&&o.s=="limit"){form(Y("lim"),c);return}
     if(!o||!o.s){dropCode(c);bar();form(Y("nf"),c);return}
-    var h='<div style="text-align:center;font-weight:800;letter-spacing:2px;color:#fbbf24;direction:ltr">'+c+'</div>';
+    var h='<div style="text-align:center;font-size:13px;opacity:.85;margin-bottom:2px">'+({ar:"هذا رقم طلبك",fr:"Voici votre numéro de commande",en:"This is your order number"}[lang]||"هذا رقم طلبك")+'</div><div style="text-align:center;font-weight:800;letter-spacing:2px;color:#fbbf24;direction:ltr">'+c+'</div>';
     if(o.s=="cancelled"){dropCode(c);bar()}if(o.s=="delivered"){markDl(c);markSn(c);bar()}if(o.s=="cancelled")h+='<div style="text-align:center;font-size:20px;font-weight:800;color:#f87171;margin:12px 0">'+Y("s_cancelled")+'</div>';
     else{var n=steps.indexOf(o.s);h+='<div class="tkst">'+steps.map(function(s,i){return (i?'<b class="'+(i<=n?"on":"")+'"></b>':"")+'<i class="'+(i<=n?"on":"")+'">'+(i<=n?"✓":"")+'</i>'}).join("")+'</div><div class="tkl">'+steps.map(function(s,i){return '<span class="'+(i==n?"on":"")+'">'+Y("s_"+s)+'</span>'}).join("")+'</div>'}
     h+='<div style="margin-top:12px;border-top:1px solid #fff3;padding-top:8px">'+(o.items||[]).map(function(i){return '<div style="display:flex;justify-content:space-between;gap:8px;font-size:14px;padding:3px 0"><span>'+esc(i.n[lang]||i.n.ar||i.n.fr||i.n.en||"")+'</span><b>× '+i.q+'</b></div>'}).join("")+'</div>';
@@ -636,7 +636,7 @@ document.getElementById("wmall").addEventListener("click",function(){var a=todo(
 var ra=window.renderAdmin;
 setInterval(lab,1500);lab();
 })();</script>
-<script>var SMB="25";
+<script>var SMB="26";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 </body>

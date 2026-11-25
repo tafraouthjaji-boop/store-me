@@ -239,7 +239,7 @@ var g=document.getElementById("alang2");if(g)g.innerHTML=["ar","fr","en"].map(fu
 document.getElementById("alang2").addEventListener("click",function(e){var t=e.target.closest("button");if(!t||t.dataset.l==lang)return;lang=t.dataset.l;lsset("sm_lang",lang);applyLang();cl="";d()});
 d();setInterval(d,700);
 })();</script>
-<style>#at_set .card{display:none}#at_set.sub .card.show{display:block}#at_set.sub .hint,#at_set.sub #slist{display:none}#at_set.sub #sback{display:flex!important}#at_set.sub .ct{display:none}
+<style>.aiw::after{content:"";display:inline-block;width:1.4em;text-align:start;animation:aid 1.1s steps(4,end) infinite;vertical-align:bottom;overflow:hidden}@keyframes aid{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}#at_set .card{display:none}#at_set.sub .card.show{display:block}#at_set.sub .hint,#at_set.sub #slist{display:none}#at_set.sub #sback{display:flex!important}#at_set.sub .ct{display:none}
 #slist .g{background:#ffffff0d;border-radius:20px;margin:0 0 14px;overflow:hidden}#slist .r{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;border-bottom:1px solid #ffffff14;color:#fff;background:none;border-left:0;border-right:0;border-top:0;width:100%;font:inherit;text-align:start}#slist .r:last-child{border-bottom:0}#slist .ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:21px;flex:none}#slist .tt{flex:1;font-size:16px;font-weight:700}#slist .vl{font-size:13px;opacity:.65;direction:ltr}#slist .chv{opacity:.55;font-size:24px;line-height:1}html[dir=ltr] #slist .chv{transform:scaleX(-1)}
 #sback{align-items:center;gap:10px;margin:0 0 10px}#sback button{background:#ffffff14;border:1px solid var(--bd);color:#fff;border-radius:50%;width:38px;height:38px;font-size:24px;line-height:1;cursor:pointer}html[dir=ltr] #sback button{transform:scaleX(-1)}#sback b{font-size:18px}</style>
 <script>
@@ -447,7 +447,7 @@ function aiPos(){$("aifab").style.display=(AIOFF||$("aov").classList.contains("o
 function aiOpen(){$("aip").classList.add("open");if(!$("aim").children.length)aiMsg(T("aiHi"));setTimeout(function(){$("aiq").focus()},100)}
 $("aifab").onclick=aiOpen;$("aix").onclick=function(){$("aip").classList.remove("open")};
 $("aitog").onclick=function(){var v=AIOFF?"on":"off";api("rpc/admin_set_setting",{pass:PASS,k:"ai",v:v}).then(function(){AIOFF=!AIOFF;aiShow()}).catch(function(e){alert(e.message)})};
-$("aif").onsubmit=function(e){e.preventDefault();var q=$("aiq").value.trim();if(!q||aiBusy)return;$("aiq").value="";aiMsg(q,true);aiBusy=true;var w=aiMsg(T("aiThink"));
+$("aif").onsubmit=function(e){e.preventDefault();var q=$("aiq").value.trim();if(!q||aiBusy)return;$("aiq").value="";aiMsg(q,true);aiBusy=true;var w=aiMsg(T("aiThink"));w.classList.add("aiw");w.textContent={ar:"كنقلب ليك على الجواب",fr:"Je cherche la réponse",en:"Looking up the answer"}[lang]||"…";
   fetch(SB+"/functions/v1/assist",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({bid:AIB,l:lang,q:q,h:aiH.slice(-6)})}).then(function(r){return r.json()}).then(function(o){
     aiBusy=false;if(o.code!="ok"||!o.reply){w.textContent=o.code=="visitor"?T("aiLim"):T("aiBusy");return}
     w.textContent=o.reply;aiH.push({r:"u",t:q},{r:"a",t:o.reply});
@@ -696,7 +696,7 @@ var ra=window.renderAdmin;
 window.WMTRY=0;function auto(){try{var ov=document.getElementById("aov");if(!PASS||window.WMRUN||window.WMTRY>=2||!ov||!ov.classList.contains("open"))return;if(!todo().length)return;window.WMTRY++;window.WMAUTO=1;document.getElementById("wmall").click()}catch(e){}}
 setInterval(function(){lab();auto()},1500);lab();
 })();</script>
-<script>var SMB="31";
+<script>var SMB="32";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 </body>

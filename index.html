@@ -148,6 +148,7 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
 <div class="ov" id="aov"><div class="sheet">
   <button class="x" id="aclose">×</button>
   <h2 data-i="admin"></h2>
+   <div id="alang"></div>
   <div id="alogin"><div id="ghbox"><div class="note" style="margin:0 0 10px" data-i="ghnote"></div><button class="send" id="ghbtn" style="background:#24292f" data-i="ghbtn"></button></div><div id="pinbox" style="display:none"><button type="button" class="send" id="pkunl" style="background:linear-gradient(135deg,#4ade80,#22d3ee);color:#04210f" data-i="pkUnlock"></button><div class="note" id="pinhint" style="margin:0 0 8px"></div><input id="pin" type="password"><button class="send" id="pinok" style="background:var(--g)" data-i="enter"></button></div></div>
   <div id="apanel" style="display:none">
     <div id="wmst" style="font-size:12px;opacity:.8;margin-bottom:6px"></div>
@@ -178,28 +179,28 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
       <div id="vbars"></div><div style="height:14px"></div><div id="vcn"></div>
     </div>
 </div>
-    <div class="atab" id="at_set" style="display:none"><div class="hint" id="ah_set"></div><div class="sec" style="margin-top:0;padding-top:0"><span class="lbl" id="wahdr"></span>    
+    <div class="atab" id="at_set" style="display:none"><div class="hint" id="ah_set"></div><div id="slist"></div><div id="sback" style="display:none"></div><div class="sec card" style="margin-top:0;padding-top:0"><div class="ct" id="ct0"></div><div class="ch" id="ch0"></div>    
     <span class="lbl" data-i="wa"></span><input id="swa" inputmode="tel">
     <button class="btn2" id="swasave" data-i="save"></button>
-  </div>    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="bgt"></span>
+  </div>    <div class="sec card" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><div class="ct" id="ct1"></div><div class="ch" id="ch1"></div><span class="lbl" data-i="bgt"></span>
       <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="bgh"></div>
       <div id="bgl"></div>
       <div style="display:flex;gap:8px"><button type="button" class="btn2" id="bgcam" style="flex:1" data-i="takecam"></button><button type="button" class="btn2" id="bggal" style="flex:1" data-i="pickgal"></button></div>
       <input id="bgf1" type="file" accept="image/*" capture="environment" style="display:none"><input id="bgf2" type="file" accept="image/*" multiple style="display:none">
     </div>
-    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="pushT"></span>
+    <div class="sec card" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><div class="ct" id="ct2"></div><div class="ch" id="ch2"></div><span class="lbl" data-i="pushT"></span>
       <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="pushH"></div>
       <div style="display:flex;gap:8px"><button type="button" class="btn2" id="pushon" style="flex:1" data-i="pushOn"></button><button type="button" class="btn2" id="pushtest" style="flex:1" data-i="pushTest"></button></div>
     </div>
-    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="pkT"></span>
+    <div class="sec card" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><div class="ct" id="ct3"></div><div class="ch" id="ch3"></div><span class="lbl" data-i="pkT"></span>
       <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="pkH"></div>
       <button type="button" class="btn2" id="pkon" style="width:100%" data-i="pkOn"></button><div id="pkl"></div>
     </div>
-    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="aiAT"></span>
+    <div class="sec card" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><div class="ct" id="ct4"></div><div class="ch" id="ch4"></div><span class="lbl" data-i="aiAT"></span>
       <div style="font-size:13px;opacity:.75;margin:4px 0" data-i="aiAH"></div>
       <button type="button" class="btn2" id="aitog" style="width:100%"></button>
     </div>
-</div>
+<div class="sec card"><div class="ct" id="ct5"></div><div class="ch" id="ch5"></div><div id="alang2" class="alg"></div></div></div>
     <div id="atabs"></div>
   </div>
 </div></div>
@@ -219,6 +220,41 @@ function draw(f){var L=TT[lang]||TT.ar;if(!f&&cl==lang&&cur===window.__ac)return
 document.getElementById("atabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)tab(b.dataset.t)});
 try{cur=sessionStorage.getItem("sm_atab")}catch(e){}if(!cur||!document.getElementById("at_"+cur))cur="orders";
 window.admTab=tab;draw(1);setInterval(function(){draw(0);var q=document.getElementById("ib"),o=document.getElementById("aov");if(q)q.style.visibility=(o&&o.classList.contains("open"))?"hidden":""},1000);
+})();</script>
+<style>#alang{display:flex;gap:6px;margin:-2px 0 10px}#alang button{flex:1;border:1px solid var(--bd);background:#ffffff14;color:#fff;border-radius:12px;padding:7px 4px;font:inherit;font-size:13px;font-weight:800;cursor:pointer}#alang button.on{background:var(--g);border-color:var(--g)}</style>
+<script>
+(function(){var N={ar:"العربية",fr:"Français",en:"English"},cl="";
+function d(){var b=document.getElementById("alang");if(!b||cl==lang)return;cl=lang;b.innerHTML=["ar","fr","en"].map(function(l){return '<button type="button" data-l="'+l+'" class="'+(l==lang?"on":"")+'">'+N[l]+'</button>'}).join("")}
+document.getElementById("alang").addEventListener("click",function(e){var t=e.target.closest("button");if(!t||t.dataset.l==lang)return;lang=t.dataset.l;lsset("sm_lang",lang);applyLang();cl="";d()});
+d();setInterval(d,700);
+})();</script>
+<style>#at_set .card{margin:12px 0!important;border:1px solid var(--bd)!important;padding:12px!important;background:#ffffff0a;border-radius:16px}#at_set .ct{font-size:16px;font-weight:800;margin-bottom:4px}#at_set .ch{font-size:13px;opacity:.8;margin-bottom:8px;line-height:1.5}#at_set .ch:empty{display:none}#at_set .card .lbl[data-i=pushT],#at_set .card .lbl[data-i=pkT],#at_set .card .lbl[data-i=aiAT],#at_set .card .lbl[data-i=bgt]{display:none}.alg{display:flex;gap:6px}.alg button{flex:1;border:1px solid var(--bd);background:#ffffff14;color:#fff;border-radius:12px;padding:8px 4px;font:inherit;font-size:13px;font-weight:800;cursor:pointer}.alg button.on{background:var(--g);border-color:var(--g)}</style>
+<script>
+(function(){var C={ar:[["📱","الطلبات والواتساب","الرقم اللي كيوصلو عليه الطلبات ديال الزبناء."],["🎨","مظهر المتجر",""],["🔔","الإشعارات",""],["🔐","الأمان",""],["🤖","المساعد الذكي",""],["🌐","اللغة","غيّر لغة الإدارة (والمتجر على هاد الهاتف)."]],
+fr:[["📱","Commandes et WhatsApp","Le numéro WhatsApp qui reçoit les commandes des clients."],["🎨","Apparence de la boutique",""],["🔔","Notifications",""],["🔐","Sécurité",""],["🤖","Assistant IA",""],["🌐","Langue","Changer la langue de l'administration (et de la boutique sur ce téléphone)."]],
+en:[["📱","Orders and WhatsApp","The WhatsApp number that receives customer orders."],["🎨","Store look",""],["🔔","Notifications",""],["🔐","Security",""],["🤖","AI assistant",""],["🌐","Language","Change the admin language (and the store on this phone)."]]};
+var N={ar:"العربية",fr:"Français",en:"English"},cl="";
+function d(){if(cl==lang)return;cl=lang;var L=C[lang]||C.ar;for(var i=0;i<6;i++){var a=document.getElementById("ct"+i),b=document.getElementById("ch"+i);if(a)a.textContent=L[i][0]+" "+L[i][1];if(b)b.textContent=L[i][2]}
+var g=document.getElementById("alang2");if(g)g.innerHTML=["ar","fr","en"].map(function(l){return '<button type="button" data-l="'+l+'" class="'+(l==lang?"on":"")+'">'+N[l]+'</button>'}).join("")}
+document.getElementById("alang2").addEventListener("click",function(e){var t=e.target.closest("button");if(!t||t.dataset.l==lang)return;lang=t.dataset.l;lsset("sm_lang",lang);applyLang();cl="";d()});
+d();setInterval(d,700);
+})();</script>
+<style>#at_set .card{display:none}#at_set.sub .card.show{display:block}#at_set.sub .hint,#at_set.sub #slist{display:none}#at_set.sub #sback{display:flex!important}#at_set.sub .ct{display:none}
+#slist .g{background:#ffffff0d;border-radius:20px;margin:0 0 14px;overflow:hidden}#slist .r{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;border-bottom:1px solid #ffffff14;color:#fff;background:none;border-left:0;border-right:0;border-top:0;width:100%;font:inherit;text-align:start}#slist .r:last-child{border-bottom:0}#slist .ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:21px;flex:none}#slist .tt{flex:1;font-size:16px;font-weight:700}#slist .vl{font-size:13px;opacity:.65;direction:ltr}#slist .chv{opacity:.55;font-size:24px;line-height:1}html[dir=ltr] #slist .chv{transform:scaleX(-1)}
+#sback{align-items:center;gap:10px;margin:0 0 10px}#sback button{background:#ffffff14;border:1px solid var(--bd);color:#fff;border-radius:50%;width:38px;height:38px;font-size:24px;line-height:1;cursor:pointer}html[dir=ltr] #sback button{transform:scaleX(-1)}#sback b{font-size:18px}</style>
+<script>
+(function(){var T={ar:["الطلبات والواتساب","مظهر المتجر","الإشعارات","الأمان","المساعد الذكي","اللغة"],fr:["Commandes et WhatsApp","Apparence de la boutique","Notifications","Sécurité","Assistant IA","Langue"],en:["Orders and WhatsApp","Store look","Notifications","Security","AI assistant","Language"]},
+IC=[["📱","#22c55e"],["🎨","#f97316"],["🔔","#ef4444"],["🔐","#8b5cf6"],["🤖","#0ea5e9"],["🌐","#3b82f6"]],
+G=[[0,1],[2,3,4],[5]],NL={ar:"العربية",fr:"Français",en:"English"},sub=-1,key="";
+function cards(){return document.querySelectorAll("#at_set .card")}
+function render(){var p=document.getElementById("at_set");if(!p)return;if(p.style.display=="none"&&sub>=0)sub=-1;
+  var wa=(document.getElementById("swa")||{}).value||"",k=lang+"|"+sub+"|"+wa;if(k==key)return;key=k;var L=T[lang]||T.ar;
+  document.getElementById("slist").innerHTML=G.map(function(g){return '<div class="g">'+g.map(function(i){var v=i==5?NL[lang]:(i==0?wa:"");return '<button type="button" class="r" data-i="'+i+'"><span class="ic" style="background:'+IC[i][1]+'">'+IC[i][0]+'</span><span class="tt">'+L[i]+'</span>'+(v?'<span class="vl">'+v+'</span>':'')+'<span class="chv">\u2039</span></button>'}).join("")+'</div>'}).join("");
+  p.classList.toggle("sub",sub>=0);cards().forEach(function(c,i){c.classList.toggle("show",i==sub)});
+  var b=document.getElementById("sback");if(sub>=0)b.innerHTML='<button type="button" id="sbk">\u203A</button><b>'+IC[sub][0]+" "+L[sub]+'</b>';}
+document.getElementById("slist").addEventListener("click",function(e){var r=e.target.closest(".r");if(!r)return;sub=+r.dataset.i;key="";render();var s=document.querySelector(".sheet");if(s)s.scrollTop=0});
+document.getElementById("sback").addEventListener("click",function(e){if(e.target.closest("#sbk")){sub=-1;key="";render()}});
+render();setInterval(render,600);window.setBack=function(){sub=-1;key="";render()};
 })();</script>
 <script>
 var I={
@@ -660,7 +696,7 @@ var ra=window.renderAdmin;
 window.WMTRY=0;function auto(){try{var ov=document.getElementById("aov");if(!PASS||window.WMRUN||window.WMTRY>=2||!ov||!ov.classList.contains("open"))return;if(!todo().length)return;window.WMTRY++;window.WMAUTO=1;document.getElementById("wmall").click()}catch(e){}}
 setInterval(function(){lab();auto()},1500);lab();
 })();</script>
-<script>var SMB="30";
+<script>var SMB="31";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 </body>

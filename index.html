@@ -78,6 +78,7 @@ footer a{color:#fff;cursor:pointer;text-decoration:underline}
 </section>
 <div id="shop" class="bar"><input id="q"></div>
 <div class="cats" id="cats"></div>
+<div class="cats" id="subs" style="padding-top:0"></div>
 <div class="grid" id="grid"></div>
 <footer id="contact"><span data-i="foot"></span> · <a id="adminlink" data-i="admin"></a></footer>
 
@@ -99,7 +100,7 @@ footer a{color:#fff;cursor:pointer;text-decoration:underline}
     <button class="btn2" id="anew" data-i="addp"></button>
     <div id="alist"></div>
     <div id="aform" style="display:none;margin-top:10px">
-      <span class="lbl" data-i="cat"></span><select id="fc"></select>
+      <span class="lbl" data-i="cat"></span><select id="fc"></select><div id="fsw" style="display:none"><span class="lbl" data-i="subl"></span><select id="fs"></select></div>
       <span class="lbl">العربية</span><input id="fna">
       <span class="lbl">Français</span><input id="fnf">
       <span class="lbl">English</span><input id="fne">
@@ -115,10 +116,10 @@ footer a{color:#fff;cursor:pointer;text-decoration:underline}
 
 <script>
 var I={
-ar:{phone:"لوازم الهاتف",takecam:"📷 التقاط صورة بالكاميرا",pickgal:"🖼️ اختيار من المعرض",ghbtn:"الدخول بحساب GitHub",ghnote:"الخطوة 1: سجّل الدخول بحساب GitHub الخاص بصاحب المتجر، ثم تكتب الرمز السري.",firstset:"أول مرة: اختر رمزاً سرياً (6 أحرف أو أكثر) لحماية إدارة المتجر. احفظه جيداً.",short:"الرمز قصير جداً (6 على الأقل)",wrong:"رمز خاطئ أو حساب غير مصرّح",home:"الرئيسية",shop:"المنتجات",catn:"الأقسام",contact:"اتصل بنا",h1:"متجرك للحواسيب والكاميرات",h2:"اختر منتجاتك وأرسل الطلب بضغطة واحدة عبر واتساب، ونتصل بك للتأكيد.",cta:"تسوّق الآن",search:"ابحث عن منتج...",all:"الكل",pc:"حواسيب",cam:"كاميرات مراقبة",print:"طابعات",acc:"ملحقات",add:"+ أضف للسلة",added:"✓ تمت الإضافة",cart:"سلة الطلبات",total:"المجموع",send:"إرسال الطلب عبر واتساب",note:"يصل طلبك مباشرة إلى صاحب المحل ويتصل بك للتأكيد. الدفع عند الاستلام.",name:"الاسم",phone:"رقم الهاتف",addr:"المدينة والعنوان",empty:"السلة فارغة",none:"لا توجد نتائج",fill:"املأ الاسم والهاتف والعنوان",cur:"درهم",foot:"Store Me",admin:"إدارة المتجر",enter:"دخول",pin:"الرمز السري",addp:"+ منتج جديد",cat:"القسم",price:"السعر (درهم)",photo:"الصورة",save:"حفظ",cancelb:"إلغاء",edit:"تعديل",del:"حذف",wa:"رقم واتساب الطلبات (مثال 2126XXXXXXXX)",order:"طلب جديد من Store Me"},
-fr:{phone:"Accessoires téléphone",takecam:"📷 Prendre une photo",pickgal:"🖼️ Choisir dans la galerie",ghbtn:"Se connecter avec GitHub",ghnote:"Étape 1 : connectez-vous avec le compte GitHub du propriétaire, puis saisissez le code secret.",firstset:"Première fois : choisissez un code secret (6 caractères minimum) pour protéger la gestion. Gardez-le bien.",short:"Code trop court (6 minimum)",wrong:"Code incorrect ou compte non autorisé",home:"ACCUEIL",shop:"PRODUITS",catn:"CATÉGORIES",contact:"CONTACT",h1:"Votre boutique informatique et caméras",h2:"Choisissez vos produits et envoyez la commande en un clic par WhatsApp. Nous vous appelons pour confirmer.",cta:"Acheter",search:"Rechercher un produit...",all:"Tout",pc:"Ordinateurs",cam:"Caméras de surveillance",print:"Imprimantes",acc:"Accessoires",add:"+ Ajouter",added:"✓ Ajouté",cart:"Panier",total:"Total",send:"Envoyer la commande par WhatsApp",note:"Votre commande arrive directement au magasin, qui vous appelle pour confirmer. Paiement à la livraison.",name:"Nom",phone:"Téléphone",addr:"Ville et adresse",empty:"Panier vide",none:"Aucun résultat",fill:"Remplissez nom, téléphone et adresse",cur:"DH",foot:"Store Me",admin:"Gestion",enter:"Entrer",pin:"Code secret",addp:"+ Nouveau produit",cat:"Catégorie",price:"Prix (DH)",photo:"Photo",save:"Enregistrer",cancelb:"Annuler",edit:"Modifier",del:"Supprimer",wa:"Numéro WhatsApp des commandes (ex. 2126XXXXXXXX)",order:"Nouvelle commande Store Me"},
-en:{phone:"Phone accessories",takecam:"📷 Take photo with camera",pickgal:"🖼️ Choose from gallery",ghbtn:"Sign in with GitHub",ghnote:"Step 1: sign in with the shop owner's GitHub account, then enter the secret code.",firstset:"First time: choose a secret code (6+ characters) to protect shop management. Keep it safe.",short:"Code too short (6 minimum)",wrong:"Wrong code or account not allowed",home:"HOME",shop:"PRODUCTS",catn:"CATEGORIES",contact:"CONTACT",h1:"Your store for computers and cameras",h2:"Pick your products and send the order in one tap on WhatsApp. We call you to confirm.",cta:"Shop now",search:"Search products...",all:"All",pc:"Computers",cam:"CCTV cameras",print:"Printers",acc:"Accessories",add:"+ Add to cart",added:"✓ Added",cart:"Your cart",total:"Total",send:"Send order on WhatsApp",note:"Your order goes straight to the shop, which calls you to confirm. Cash on delivery.",name:"Name",phone:"Phone",addr:"City and address",empty:"Cart is empty",none:"No results",fill:"Fill in name, phone and address",cur:"MAD",foot:"Store Me",admin:"Manage shop",enter:"Enter",pin:"Secret code",addp:"+ New product",cat:"Category",price:"Price (MAD)",photo:"Photo",save:"Save",cancelb:"Cancel",edit:"Edit",del:"Delete",wa:"Orders WhatsApp number (e.g. 2126XXXXXXXX)",order:"New order from Store Me"}};
-var CATS=["pc","cam","print","acc","phone"];
+ar:{chg:"شواحن",cab:"كابلات",bt:"سماعات بلوتوث",subl:"النوع",phone:"لوازم الهاتف",takecam:"📷 التقاط صورة بالكاميرا",pickgal:"🖼️ اختيار من المعرض",ghbtn:"الدخول بحساب GitHub",ghnote:"الخطوة 1: سجّل الدخول بحساب GitHub الخاص بصاحب المتجر، ثم تكتب الرمز السري.",firstset:"أول مرة: اختر رمزاً سرياً (6 أحرف أو أكثر) لحماية إدارة المتجر. احفظه جيداً.",short:"الرمز قصير جداً (6 على الأقل)",wrong:"رمز خاطئ أو حساب غير مصرّح",home:"الرئيسية",shop:"المنتجات",catn:"الأقسام",contact:"اتصل بنا",h1:"متجرك للحواسيب والكاميرات",h2:"اختر منتجاتك وأرسل الطلب بضغطة واحدة عبر واتساب، ونتصل بك للتأكيد.",cta:"تسوّق الآن",search:"ابحث عن منتج...",all:"الكل",pc:"حواسيب",cam:"كاميرات مراقبة",print:"طابعات",acc:"ملحقات",add:"+ أضف للسلة",added:"✓ تمت الإضافة",cart:"سلة الطلبات",total:"المجموع",send:"إرسال الطلب عبر واتساب",note:"يصل طلبك مباشرة إلى صاحب المحل ويتصل بك للتأكيد. الدفع عند الاستلام.",name:"الاسم",phone:"رقم الهاتف",addr:"المدينة والعنوان",empty:"السلة فارغة",none:"لا توجد نتائج",fill:"املأ الاسم والهاتف والعنوان",cur:"درهم",foot:"Store Me",admin:"إدارة المتجر",enter:"دخول",pin:"الرمز السري",addp:"+ منتج جديد",cat:"القسم",price:"السعر (درهم)",photo:"الصورة",save:"حفظ",cancelb:"إلغاء",edit:"تعديل",del:"حذف",wa:"رقم واتساب الطلبات (مثال 2126XXXXXXXX)",order:"طلب جديد من Store Me"},
+fr:{chg:"Chargeurs",cab:"Câbles",bt:"Écouteurs Bluetooth",subl:"Type",phone:"Accessoires téléphone",takecam:"📷 Prendre une photo",pickgal:"🖼️ Choisir dans la galerie",ghbtn:"Se connecter avec GitHub",ghnote:"Étape 1 : connectez-vous avec le compte GitHub du propriétaire, puis saisissez le code secret.",firstset:"Première fois : choisissez un code secret (6 caractères minimum) pour protéger la gestion. Gardez-le bien.",short:"Code trop court (6 minimum)",wrong:"Code incorrect ou compte non autorisé",home:"ACCUEIL",shop:"PRODUITS",catn:"CATÉGORIES",contact:"CONTACT",h1:"Votre boutique informatique et caméras",h2:"Choisissez vos produits et envoyez la commande en un clic par WhatsApp. Nous vous appelons pour confirmer.",cta:"Acheter",search:"Rechercher un produit...",all:"Tout",pc:"Ordinateurs",cam:"Caméras de surveillance",print:"Imprimantes",acc:"Accessoires",add:"+ Ajouter",added:"✓ Ajouté",cart:"Panier",total:"Total",send:"Envoyer la commande par WhatsApp",note:"Votre commande arrive directement au magasin, qui vous appelle pour confirmer. Paiement à la livraison.",name:"Nom",phone:"Téléphone",addr:"Ville et adresse",empty:"Panier vide",none:"Aucun résultat",fill:"Remplissez nom, téléphone et adresse",cur:"DH",foot:"Store Me",admin:"Gestion",enter:"Entrer",pin:"Code secret",addp:"+ Nouveau produit",cat:"Catégorie",price:"Prix (DH)",photo:"Photo",save:"Enregistrer",cancelb:"Annuler",edit:"Modifier",del:"Supprimer",wa:"Numéro WhatsApp des commandes (ex. 2126XXXXXXXX)",order:"Nouvelle commande Store Me"},
+en:{chg:"Chargers",cab:"Cables",bt:"Bluetooth headphones",subl:"Type",phone:"Phone accessories",takecam:"📷 Take photo with camera",pickgal:"🖼️ Choose from gallery",ghbtn:"Sign in with GitHub",ghnote:"Step 1: sign in with the shop owner's GitHub account, then enter the secret code.",firstset:"First time: choose a secret code (6+ characters) to protect shop management. Keep it safe.",short:"Code too short (6 minimum)",wrong:"Wrong code or account not allowed",home:"HOME",shop:"PRODUCTS",catn:"CATEGORIES",contact:"CONTACT",h1:"Your store for computers and cameras",h2:"Pick your products and send the order in one tap on WhatsApp. We call you to confirm.",cta:"Shop now",search:"Search products...",all:"All",pc:"Computers",cam:"CCTV cameras",print:"Printers",acc:"Accessories",add:"+ Add to cart",added:"✓ Added",cart:"Your cart",total:"Total",send:"Send order on WhatsApp",note:"Your order goes straight to the shop, which calls you to confirm. Cash on delivery.",name:"Name",phone:"Phone",addr:"City and address",empty:"Cart is empty",none:"No results",fill:"Fill in name, phone and address",cur:"MAD",foot:"Store Me",admin:"Manage shop",enter:"Enter",pin:"Secret code",addp:"+ New product",cat:"Category",price:"Price (MAD)",photo:"Photo",save:"Save",cancelb:"Cancel",edit:"Edit",del:"Delete",wa:"Orders WhatsApp number (e.g. 2126XXXXXXXX)",order:"New order from Store Me"}};
+var CATS=["pc","cam","print","acc","phone"], SUBS=["chg","cab","bt"], sub="all";
 var $=function(i){return document.getElementById(i)};
 function ls(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function lsset(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){alert("storage full")}}
@@ -153,14 +154,16 @@ function applyLang(){
   $("q").placeholder=T("search");$("name").placeholder=T("name");$("phone").placeholder=T("phone");$("addr").placeholder=T("addr");$("pin").placeholder=T("pin");
   $("lang").innerHTML=["ar","fr","en"].map(function(l){return '<button data-l="'+l+'" class="'+(l==lang?"on":"")+'">'+l.toUpperCase()+'</button>'}).join("");
   $("fc").innerHTML=CATS.map(function(c){return '<option value="'+c+'">'+T(c)+'</option>'}).join("");
+  $("fs").innerHTML='<option value="">—</option>'+SUBS.map(function(c){return '<option value="'+c+'">'+T(c)+'</option>'}).join("");
   renderCats();renderGrid();renderCart();renderAdmin();
 }
-function renderCats(){$("cats").innerHTML=["all"].concat(CATS).map(function(k){return '<button data-k="'+k+'" class="'+(k==cat?"on":"")+'">'+T(k)+'</button>'}).join("")}
+function renderSubs(){$("subs").innerHTML=cat=="phone"?["all"].concat(SUBS).map(function(k){return '<button data-sk="'+k+'" class="'+(k==sub?"on":"")+'">'+T(k)+'</button>'}).join(""):""}
+function renderCats(){renderSubs();$("cats").innerHTML=["all"].concat(CATS).map(function(k){return '<button data-k="'+k+'" class="'+(k==cat?"on":"")+'">'+T(k)+'</button>'}).join("")}
 function ico(p){return {pc:"💻",cam:"📹",print:"🖨️",acc:"🖱️",phone:"📱"}[p.c]||"📦"}
 function thumb(p){return p.img?'style="background-image:url('+p.img+')"':''}
 function renderGrid(){
   var s=$("q").value.trim().toLowerCase();
-  $("grid").innerHTML=P.filter(function(p){return (cat=="all"||p.c==cat)&&(!s||(p.n.ar+p.n.fr+p.n.en).toLowerCase().indexOf(s)>-1)}).map(function(p){
+  $("grid").innerHTML=P.filter(function(p){return (cat=="all"||p.c==cat)&&(cat!="phone"||sub=="all"||p.s==sub)&&(!s||(p.n.ar+p.n.fr+p.n.en).toLowerCase().indexOf(s)>-1)}).map(function(p){
     return '<div class="p"><div class="img" '+thumb(p)+'>'+(p.img?"":ico(p))+'</div><div class="pb"><div class="pn">'+nm(p)+'</div><div class="pr">'+money(p.p)+'</div><button class="add" data-id="'+p.id+'">'+T("add")+'</button></div></div>'}).join("")||'<div class="empty">'+T("none")+'</div>';
 }
 function items(){return P.filter(function(p){return cart[p.id]})}
@@ -180,7 +183,8 @@ document.addEventListener("click",function(e){
   var t=e.target,d=t.dataset;
   if(d.l){lang=d.l;lsset("sm_lang",lang);applyLang()}
   if(d.go&&d.go!="cats")go(d.go);if(d.go=="cats")go("cats");
-  if(d.k){cat=d.k;renderCats();renderGrid()}
+  if(d.k){cat=d.k;sub="all";renderCats();renderGrid()}
+  if(d.sk){sub=d.sk;renderCats();renderGrid()}
   if(d.id){cart[d.id]=(cart[d.id]||0)+1;renderCart();t.textContent=T("added");setTimeout(function(){t.textContent=T("add")},700)}
   if(d.m){cart[d.m]--;if(cart[d.m]<=0)delete cart[d.m];renderCart()}
   if(d.a){cart[d.a]++;renderCart()}
@@ -221,7 +225,7 @@ $("anew").onclick=function(){openForm(0)};
 $("fcancel").onclick=function(){$("aform").style.display="none"};
 function openForm(id){
   editing=id;var p=P.filter(function(x){return x.id==id})[0]||{c:"pc",n:{ar:"",fr:"",en:""},p:""};
-  $("fc").value=p.c;$("fna").value=p.n.ar;$("fnf").value=p.n.fr;$("fne").value=p.n.en;$("fp").value=p.p;$("ff").value="";$("fcam").value="";$("pname").textContent="";
+  $("fc").value=p.c;$("fs").value=p.s||"";$("fsw").style.display=p.c=="phone"?"block":"none";$("fna").value=p.n.ar;$("fnf").value=p.n.fr;$("fne").value=p.n.en;$("fp").value=p.p;$("ff").value="";$("fcam").value="";$("pname").textContent="";
   $("aform").style.display="block";$("aform").scrollIntoView();
 }
 function shrink(file,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,1200/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);cb(c.toDataURL("image/jpeg",.8))};im.src=r.result};r.readAsDataURL(file)}
@@ -230,7 +234,7 @@ $("fsave").onclick=function(){
     var n={ar:$("fna").value.trim(),fr:$("fnf").value.trim(),en:$("fne").value.trim()};
     n.fr=n.fr||n.ar;n.en=n.en||n.fr||n.ar;n.ar=n.ar||n.fr||n.en;
     var prev=P.filter(function(x){return x.id==editing})[0]||{};
-    var d={c:$("fc").value,n:n,p:parseFloat($("fp").value)||0,img:img||prev.img||""};
+    var d={c:$("fc").value,s:$("fc").value=="phone"?$("fs").value:"",n:n,p:parseFloat($("fp").value)||0,img:img||prev.img||""};
     $("fsave").disabled=true;
     api("rpc/admin_save_product",{pass:PASS,pid:editing||null,d:d}).then(function(){$("aform").style.display="none";$("fsave").disabled=false;return load()}).catch(function(e){$("fsave").disabled=false;alert(e.message)});
   };
@@ -240,6 +244,7 @@ $("swasave").onclick=function(){var w=$("swa").value.replace(/\D/g,"");api("rpc/
 
 applyLang();load();if(AUTOADMIN)adminOpen();
 
+$("fc").onchange=function(){$("fsw").style.display=this.value=="phone"?"block":"none"};
 document.addEventListener("DOMContentLoaded",function(){var lb=document.getElementById("lb"),im=document.getElementById("lbi");
 function close(){lb.classList.remove("open");im.style.transform="";im.removeAttribute("src")}
 document.addEventListener("click",function(e){var t=e.target.closest&&e.target.closest(".p .img");if(!t)return;var m=/url\(["']?([^"')]+)/.exec(t.getAttribute("style")||"");if(!m)return;e.stopPropagation();im.src=m[1];im.style.transform="";lb.classList.add("open")},true);

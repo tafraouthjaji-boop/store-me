@@ -180,20 +180,6 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
     <div class="atab" id="at_products" style="display:none"><div class="hint" id="ah_products"></div>    <button class="btn2" id="anew" data-i="addp"></button>
     <button type="button" class="btn2" id="wmall" style="width:100%;margin:8px 0"></button><div id="alist"></div>
     <div id="aform" style="display:none;margin-top:10px">
-      <div id="imp" style="border:1px dashed #4ade80;border-radius:14px;padding:10px;margin-bottom:12px;background:#4ade8012">
-        <span class="lbl" id="impt" style="font-size:14px;font-weight:800;opacity:1;color:#4ade80"></span>
-        <div class="note" id="impn" style="margin:2px 0 8px;text-align:start"></div>
-        <input id="impu" type="url" inputmode="url" dir="ltr" placeholder="https://...">
-        <button type="button" class="send" id="impgo" style="margin-top:8px;background:linear-gradient(135deg,#16a34a,#0ea5a4);font-size:16px"></button>
-        <div class="note" id="impst" style="text-align:start"></div>
-        <div id="impbox" style="display:none">
-          <span class="lbl" id="impil"></span>
-          <div id="impimgs" style="display:flex;gap:8px;overflow-x:auto;padding:4px 0"></div>
-          <label style="display:flex;align-items:center;gap:8px;font-size:13px;margin:8px 0"><input type="checkbox" id="impwm" checked style="width:20px;height:20px"><span id="impwl"></span></label>
-          <div id="imphint" style="font-size:13px;background:#fbbf2422;border:1px solid #fbbf2466;border-radius:10px;padding:8px;margin-bottom:6px"></div>
-          <div class="note" id="impw" style="text-align:start;color:#fbbf24;opacity:.95"></div>
-        </div>
-      </div>
       <span class="lbl" data-i="cat"></span><select id="fc"></select><div id="fsw" style="display:none"><span class="lbl" data-i="subl"></span><select id="fs"></select></div>
       <span class="lbl">العربية</span><input id="fna">
       <span class="lbl">Français</span><input id="fnf">
@@ -206,6 +192,30 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
       <div style="display:flex;gap:8px"><button class="send" id="fsave" style="background:var(--g)" data-i="save"></button><button class="btn2" id="fcancel" data-i="cancelb"></button></div>
     </div>
 </div>
+    <div class="atab" id="at_imp" style="display:none"><div class="hint" id="ah_imp"></div>
+      <div class="sec" style="margin-top:12px;border-top:1px solid #fff3;padding-top:12px">
+        <div class="note" id="impn" style="margin:0 0 8px;text-align:start"></div>
+        <input id="impu" type="url" inputmode="url" dir="ltr" placeholder="https://...">
+        <button type="button" class="send" id="impgo" style="margin-top:4px;background:linear-gradient(135deg,#16a34a,#0ea5a4);font-size:16px"></button>
+        <div class="note" id="impst" style="text-align:start"></div>
+      </div>
+      <div id="impbox" style="display:none;margin-top:10px">
+        <div id="imphint" style="font-size:13px;background:#fbbf2422;border:1px solid #fbbf2466;border-radius:10px;padding:8px;margin-bottom:8px"></div>
+        <span class="lbl" id="impil"></span>
+        <div id="impimgs" style="display:flex;gap:8px;overflow-x:auto;padding:4px 0"></div>
+        <div style="display:flex;gap:8px;margin:6px 0"><button type="button" class="btn2" id="ibcam" style="flex:1" data-i="takecam"></button><button type="button" class="btn2" id="ibgal" style="flex:1" data-i="pickgal"></button></div><input id="ifcam" type="file" accept="image/*" capture="environment" hidden><input id="iff" type="file" accept="image/*" hidden><div class="note" id="ipname" style="margin:0 0 6px"></div>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;margin:6px 0 10px"><input type="checkbox" id="impwm" checked style="width:20px;height:20px;margin:0"><span id="impwl"></span></label>
+        <span class="lbl" data-i="cat"></span><select id="ic"></select><div id="isw" style="display:none"><span class="lbl" data-i="subl"></span><select id="is"></select></div>
+        <span class="lbl">العربية</span><input id="ina">
+        <span class="lbl">Français</span><input id="inf">
+        <span class="lbl">English</span><input id="ine">
+        <span class="lbl" data-i="price"></span><input id="ip" inputmode="numeric">
+        <span class="lbl" data-i="descl"></span>
+        <span class="lbl">العربية</span><textarea id="ida" rows="6"></textarea><span class="lbl">Français</span><textarea id="idf" rows="6"></textarea><span class="lbl">English</span><textarea id="ide" rows="6"></textarea>
+        <div class="note" id="impw" style="text-align:start;color:#fbbf24;opacity:.95;margin:0 0 10px"></div>
+        <div style="display:flex;gap:8px"><button class="send" id="isave" style="background:var(--g)" data-i="save"></button><button class="btn2" id="icancel"></button></div>
+      </div>
+    </div>
     <div class="atab" id="at_fin" style="display:none"><div class="hint" id="ah_fin"></div>    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" id="fint" style="font-size:15px;font-weight:800;opacity:1;color:#4ade80">💰</span><div id="fin"></div></div>
 </div>
     <div class="atab" id="at_stats" style="display:none"><div class="hint" id="ah_stats"></div>    <div class="sec" style="margin-top:18px;border-top:1px solid #fff3;padding-top:12px"><span class="lbl" data-i="visT"></span>
@@ -242,10 +252,10 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
 <style>#atabs{position:sticky;bottom:-18px;margin:14px -18px -18px;padding:6px 4px calc(8px + env(safe-area-inset-bottom));background:#0a2a36;border-top:1px solid var(--bd);display:flex;gap:2px;z-index:5}#atabs button{flex:1;background:none;border:0;color:#fff;opacity:.6;font:inherit;font-size:12px;font-weight:700;padding:6px 2px;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}#atabs button b{font-size:20px;line-height:1}#atabs button.on{opacity:1;background:linear-gradient(135deg,#064e3b,#0b3b4c);box-shadow:inset 0 0 0 1px #4ade80}.atab .hint{font-size:13px;opacity:.85;background:#ffffff10;border-radius:12px;padding:8px 12px;margin:2px 0 10px;line-height:1.5}.atab>.hint+.sec{margin-top:0!important;border-top:0!important;padding-top:0!important}</style>
 <script>
 (function(){var TT={
-ar:{o:["📦","الطلبات","طلبات الزبناء: أكّد الطلب، بدّل حالته (قيد الشحن / تم التسليم)، سجّل الموزع، وشوف المنتجات الأكثر طلباً."],p:["🛍️","المنتجات","زيد، عدّل أو حذف المنتجات: الأسماء، الأثمنة، الصور والوصف. هنا كذلك زر اللوغو على الصور."],f:["💰","المالية","المبيعات، التكلفة والربح ديال المتجر."],s:["📊","الإحصائيات","شحال من زائر دخل للمتجر: اليوم، هاد الأسبوع والمجموع."],t:["⚙️","الإعدادات","رقم واتساب الطلبات، خلفية المتجر، الإشعارات، البصمة، ومساعد الذكاء الاصطناعي."],wa:"رقم واتساب اللي كيوصلو الطلبات"},
-fr:{o:["📦","Commandes","Commandes des clients : confirmer, changer le statut (en livraison / livrée), noter le livreur, voir les produits les plus commandés."],p:["🛍️","Produits","Ajouter, modifier ou supprimer des produits : noms, prix, photos et description. Le bouton logo sur les photos est ici."],f:["💰","Finances","Ventes, coûts et bénéfice de la boutique."],s:["📊","Statistiques","Nombre de visiteurs : aujourd'hui, cette semaine et au total."],t:["⚙️","Réglages","Numéro WhatsApp des commandes, fond de la boutique, notifications, empreinte et assistant IA."],wa:"Numéro WhatsApp qui reçoit les commandes"},
-en:{o:["📦","Orders","Customer orders: confirm, change status (shipped / delivered), set the courier, and see the most ordered products."],p:["🛍️","Products","Add, edit or delete products: names, prices, photos and description. The logo-on-photos button is here too."],f:["💰","Finance","Sales, costs and profit of the shop."],s:["📊","Stats","How many visitors came: today, this week and total."],t:["⚙️","Settings","Orders WhatsApp number, store background, notifications, fingerprint and the AI assistant."],wa:"WhatsApp number that receives orders"}};
-var K=[["orders","o"],["products","p"],["fin","f"],["stats","s"],["set","t"]],cur=null,cl="";
+ar:{o:["📦","الطلبات","طلبات الزبناء: أكّد الطلب، بدّل حالته (قيد الشحن / تم التسليم)، سجّل الموزع، وشوف المنتجات الأكثر طلباً."],p:["🛍️","المنتجات","زيد، عدّل أو حذف المنتجات: الأسماء، الأثمنة، الصور والوصف. هنا كذلك زر اللوغو على الصور."],f:["💰","المالية","المبيعات، التكلفة والربح ديال المتجر."],s:["📊","الإحصائيات","شحال من زائر دخل للمتجر: اليوم، هاد الأسبوع والمجموع."],i:["🔗","استيراد","استيراد منتوج من رابط: لصق الرابط، الذكاء الاصطناعي كيعمر المسودة، كتراجع وتحفظ."],t:["⚙️","الإعدادات","رقم واتساب الطلبات، خلفية المتجر، الإشعارات، البصمة، ومساعد الذكاء الاصطناعي."],wa:"رقم واتساب اللي كيوصلو الطلبات"},
+fr:{o:["📦","Commandes","Commandes des clients : confirmer, changer le statut (en livraison / livrée), noter le livreur, voir les produits les plus commandés."],p:["🛍️","Produits","Ajouter, modifier ou supprimer des produits : noms, prix, photos et description. Le bouton logo sur les photos est ici."],f:["💰","Finances","Ventes, coûts et bénéfice de la boutique."],s:["📊","Statistiques","Nombre de visiteurs : aujourd'hui, cette semaine et au total."],i:["🔗","Import","Importer un produit depuis un lien : collez le lien, l'IA prépare le brouillon, vous vérifiez et enregistrez."],t:["⚙️","Réglages","Numéro WhatsApp des commandes, fond de la boutique, notifications, empreinte et assistant IA."],wa:"Numéro WhatsApp qui reçoit les commandes"},
+en:{o:["📦","Orders","Customer orders: confirm, change status (shipped / delivered), set the courier, and see the most ordered products."],p:["🛍️","Products","Add, edit or delete products: names, prices, photos and description. The logo-on-photos button is here too."],f:["💰","Finance","Sales, costs and profit of the shop."],s:["📊","Stats","How many visitors came: today, this week and total."],i:["🔗","Import","Import a product from a link: paste the link, the AI prepares the draft, you review and save."],t:["⚙️","Settings","Orders WhatsApp number, store background, notifications, fingerprint and the AI assistant."],wa:"WhatsApp number that receives orders"}};
+var K=[["orders","o"],["products","p"],["imp","i"],["fin","f"],["stats","s"],["set","t"]],cur=null,cl="";
 function tab(k){cur=k;try{sessionStorage.setItem("sm_atab",k)}catch(e){}draw(1)}
 function draw(f){var L=TT[lang]||TT.ar;if(!f&&cl==lang&&cur===window.__ac)return;cl=lang;window.__ac=cur;
   K.forEach(function(x){var a=document.getElementById("at_"+x[0]);if(a)a.style.display=x[0]==cur?"":"none";var h=document.getElementById("ah_"+x[0]);if(h)h.textContent=L[x[1]][2]});
@@ -330,13 +340,13 @@ function money(n){return n.toLocaleString("en-US")+" "+T("cur")}
 function dsc(p){var d=p.d||{};return d[lang]||d.ar||d.fr||d.en||""}
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function nm(p){return p.n[lang]||p.n.ar||p.n.fr||p.n.en}
-function applyLang(){try{impLang()}catch(e){}
+function applyLang(){
   document.documentElement.lang=lang;document.documentElement.dir=lang=="ar"?"rtl":"ltr";
   document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=T(e.dataset.i)});
   $("q").placeholder=T("search");$("name").placeholder=T("name");$("phone").placeholder=T("phone");$("addr").placeholder=T("addr");$("pin").placeholder=T("pin");
   $("lang").innerHTML=["ar","fr","en"].map(function(l){return '<button data-l="'+l+'" class="'+(l==lang?"on":"")+'">'+l.toUpperCase()+'</button>'}).join("");
   $("fc").innerHTML=CATS.map(function(c){return '<option value="'+c+'">'+T(c)+'</option>'}).join("");
-  $("fs").innerHTML='<option value="">—</option>'+SUBS.map(function(c){return '<option value="'+c+'">'+T(c)+'</option>'}).join("");
+  $("fs").innerHTML='<option value="">—</option>'+SUBS.map(function(c){return '<option value="'+c+'">'+T(c)+'</option>'}).join("");try{impLang()}catch(e){}
   renderCats();renderGrid();renderCart();renderAdmin();aiShow();
 }
 function renderSubs(){$("subs").innerHTML=cat=="pacc"?["all"].concat(SUBS).map(function(k){return '<button data-sk="'+k+'" class="'+(k==sub?"on":"")+'">'+T(k)+'</button>'}).join(""):""}
@@ -414,7 +424,7 @@ $("fcancel").onclick=function(){$("aform").style.display="none"};
 function openForm(id){
   editing=id;var p=P.filter(function(x){return x.id==id})[0]||{c:"pc",n:{ar:"",fr:"",en:""},p:""};
   $("fda").value=(p.d||{}).ar||"";$("fdf").value=(p.d||{}).fr||"";$("fde").value=(p.d||{}).en||"";$("fc").value=p.c;$("fs").value=p.s||"";$("fsw").style.display=p.c=="pacc"?"block":"none";$("fna").value=p.n.ar;$("fnf").value=p.n.fr;$("fne").value=p.n.en;OP=+p.p||0;$("fp").value=p.p;$("fdp").value=p.dp>0&&p.dp<p.p?p.dp:"";$("fdq").value=p.dp>0&&p.dp<p.p?pct(p):"";$("ff").value="";$("fcam").value="";$("pname").textContent="";
-  $("aform").style.display="block";impReset();$("aform").scrollIntoView();
+  $("aform").style.display="block";$("aform").scrollIntoView();
 }
 var WMU="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDYyMjJmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGI2YjRjIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImdyIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNGFkZTgwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMTZhMzRhIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiByeD0iMjQiIGZpbGw9InVybCgjZykiLz48cGF0aCBkPSJNMjYgNDIgSDc0IEw3NyA4NCBRNzcgOTAgNzEgOTAgSDI5IFEyMyA5MCAyMyA4NCBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0zNiA0MiBWMzAgUTM2IDE2IDUwIDE2IFE2NCAxNiA2NCAzMCBWMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRhZGU4MCIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSI1OSIgeT0iMzMiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMSIgcng9IjIiIGZpbGw9IiM0YWRlODAiLz48Y2lyY2xlIGN4PSI0MSIgY3k9IjY4IiByPSI4LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRhZGU4MCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGNpcmNsZSBjeD0iNDEiIGN5PSI2OCIgcj0iMi42IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iNTUiIHk9IjU2IiB3aWR0aD0iMTUiIGhlaWdodD0iMjUiIHJ4PSI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNC41Ii8+PGNpcmNsZSBjeD0iNjIuNSIgY3k9Ijc2IiByPSIxLjgiIGZpbGw9IiNmZmYiLz48L3N2Zz4=",WMI=null;
 function wmLoad(cb){if(WMI&&WMI.complete&&WMI.naturalWidth){cb(WMI);return}WMI=new Image();WMI.onload=function(){cb(WMI)};WMI.onerror=function(){cb(null)};WMI.src=WMU}
@@ -442,11 +452,7 @@ $("fsave").onclick=function(){
     $("fsave").disabled=true;
     api("rpc/admin_save_product",{pass:PASS,pid:editing||null,d:d}).then(function(){$("aform").style.display="none";$("fsave").disabled=false;return load()}).catch(function(e){$("fsave").disabled=false;alert(e.message)});
   };
-  var f=$("fcam").files[0]||$("ff").files[0];
-  if(IMP&&!editing&&!(parseFloat($("fp").value)>0)){alert(IS("askp"));return}
-  if(f){window.NOWM=0;shrink(f,fin);return}
-  if(IMP&&!editing&&IMP.imgs.length&&IMP.sel!=null){$("fsave").disabled=true;impPhoto(function(bl){$("fsave").disabled=false;if(bl===false)return;if(!bl){fin("");return}window.NOWM=$("impwm").checked?0:1;shrink(bl,function(d){window.NOWM=0;fin(d)})});return}
-  fin("");
+  var f=$("fcam").files[0]||$("ff").files[0];f?shrink(f,fin):fin("");
 };
 $("swasave").onclick=function(){var w=$("swa").value.replace(/\D/g,"");api("rpc/admin_set_setting",{pass:PASS,k:"wa",v:w}).then(function(){WA=w;alert("✓")}).catch(function(e){alert(e.message)})};
 
@@ -559,35 +565,57 @@ $("bgl").onclick=function(e){var b=e.target.closest("button");if(!b||!BG)return;
   bgSave()};
 
 
-var IMS={ar:{t:"🔗 استيراد منتوج من رابط",n:"دخل رابط صفحة منتوج من موقع مغربي صغير. الذكاء الاصطناعي كيعمر لك مسودة وأنت كتراجع وتحفظ. الثمن كتكتبو نتا.",go:"جيب المنتوج",busy:"⏳ كنقرا الصفحة... (10 إلى 25 ثانية)",il:"الصور المقترحة (ضغط على وحدة، ولا صورة ديالك من التصوير/المعرض):",wl:"زيد اللوغو ديالي على الصورة",hint:"💡 ثمن الموقع الآخر (غير للمعلومة، ممكن يكون قديم ولا بلا ضريبة):",noprice:"💡 ما لقيتش ثمن فالصفحة.",askp:"دخل الثمن ديالك نتا قبل الحفظ.",w:"⚠ الصور والنصوص ديال المواقع الأخرى عندها حقوق. الوصف تكتب من جديد، ولكن الصورة ممكن تكون محمية. الأحسن تستعمل صور ديالك ولا ديال الشركة المصنعة. راجع كلشي قبل الحفظ.",weak:"⚠ هاد الصفحة ما فيهاش بيانات منتوج واضحة (ممكن تكون لائحة منتوجات). تأكد من الاسم والوصف.",noai:"الذكاء الاصطناعي ما جاوبش دابا: دخلت الاسم فقط. دوز على زر 'مسودة الذكاء الاصطناعي' للوصف.",ok:"✓ المسودة واجدة من ",bad:"الرابط ماشي صحيح (خاصو يبدا بـ https://).",blocked:"هاد الموقع محمي وكيمنع النسخ الأوتوماتيكي (بحال Jumia وElectroplanet). جرب موقع آخر، ولا دخل المنتوج يدويا.",nop:"ما لقيتش منتوج فهاد الرابط. ممكن تكون صفحة لائحة، ولا الموقع كيتحمل بالجافاسكريبت. جرب رابط ديال منتوج واحد.",fail:"ما قدرتش نحل هاد الصفحة. تأكد من الرابط وعاود.",imgfail:"ما قدرتش نجيب الصورة المختارة. اختار وحدة أخرى ولا حط صورة ديالك."},
-fr:{t:"🔗 Importer un produit depuis un lien",n:"Collez le lien d'une page produit d'un petit site marocain. L'IA prépare un brouillon, vous vérifiez et enregistrez. Le prix, c'est vous qui l'écrivez.",go:"Récupérer le produit",busy:"⏳ Lecture de la page... (10 à 25 secondes)",il:"Photos proposées (touchez-en une, ou prenez votre propre photo / galerie) :",wl:"Ajouter mon logo sur la photo",hint:"💡 Prix de l'autre site (à titre indicatif, peut être ancien ou hors taxe) :",noprice:"💡 Aucun prix trouvé sur la page.",askp:"Entrez votre propre prix avant d'enregistrer.",w:"⚠ Les photos et textes d'autres sites ont des droits. La description est réécrite, mais la photo peut être protégée. Mieux vaut vos photos ou celles du fabricant. Vérifiez tout avant d'enregistrer.",weak:"⚠ Cette page n'a pas de données produit claires (peut-être une liste). Vérifiez le nom et la description.",noai:"L'IA n'a pas répondu: seul le nom est rempli. Utilisez le bouton brouillon IA pour la description.",ok:"✓ Brouillon prêt depuis ",bad:"Lien invalide (doit commencer par https://).",blocked:"Ce site est protégé et bloque la copie automatique (comme Jumia et Electroplanet). Essayez un autre site ou saisissez le produit à la main.",nop:"Aucun produit trouvé sur ce lien. C'est peut-être une page de liste, ou un site chargé par JavaScript. Essayez le lien d'un seul produit.",fail:"Impossible d'ouvrir cette page. Vérifiez le lien et réessayez.",imgfail:"Impossible de récupérer la photo choisie. Choisissez-en une autre ou ajoutez la vôtre."},
-en:{t:"🔗 Import a product from a link",n:"Paste a product page link from a small Moroccan shop. The AI prepares a draft; you review and save. You enter the price yourself.",go:"Get the product",busy:"⏳ Reading the page... (10 to 25 seconds)",il:"Suggested photos (tap one, or use your own camera / gallery photo):",wl:"Add my logo on the photo",hint:"💡 Price on the other site (for information only, may be old or without tax):",noprice:"💡 No price found on the page.",askp:"Enter your own price before saving.",w:"⚠ Photos and text on other sites are protected by rights. The description is rewritten, but the photo may be protected. Best to use your own photos or the manufacturer's. Check everything before saving.",weak:"⚠ This page has no clear product data (maybe a list page). Check the name and description.",noai:"The AI did not answer: only the name is filled. Use the AI draft button for the description.",ok:"✓ Draft ready from ",bad:"Invalid link (must start with https://).",blocked:"This site is protected and blocks automatic copying (like Jumia and Electroplanet). Try another site or enter the product by hand.",nop:"No product found at this link. It may be a list page, or a site that loads with JavaScript. Try the link of a single product.",fail:"Could not open this page. Check the link and try again.",imgfail:"Could not fetch the chosen photo. Pick another one or add your own."}};
+var IMS={ar:{t:"🔗 استيراد منتوج من رابط",n:"دخل رابط صفحة منتوج من موقع مغربي صغير. الذكاء الاصطناعي كيعمر لك مسودة وأنت كتراجع وتحفظ. الثمن كتكتبو نتا.",go:"جيب المنتوج",busy:"⏳ كنقرا الصفحة... (10 إلى 25 ثانية)",il:"الصور المقترحة (ضغط على وحدة، ولا صورة ديالك من التصوير/المعرض):",wl:"زيد اللوغو ديالي على الصورة",hint:"💡 ثمن الموقع الآخر (غير للمعلومة، ممكن يكون قديم ولا بلا ضريبة):",noprice:"💡 ما لقيتش ثمن فالصفحة.",askp:"دخل الثمن ديالك نتا قبل الحفظ.",w:"⚠ الصور والنصوص ديال المواقع الأخرى عندها حقوق. الوصف تكتب من جديد، ولكن الصورة ممكن تكون محمية. الأحسن تستعمل صور ديالك ولا ديال الشركة المصنعة. راجع كلشي قبل الحفظ.",weak:"⚠ هاد الصفحة ما فيهاش بيانات منتوج واضحة (ممكن تكون لائحة منتوجات). تأكد من الاسم والوصف.",noai:"الذكاء الاصطناعي ما جاوبش دابا: دخلت الاسم فقط. دوز على زر 'مسودة الذكاء الاصطناعي' للوصف.",ok:"✓ المسودة واجدة من ",bad:"الرابط ماشي صحيح (خاصو يبدا بـ https://).",blocked:"هاد الموقع محمي وكيمنع النسخ الأوتوماتيكي (بحال Jumia وElectroplanet). جرب موقع آخر، ولا دخل المنتوج يدويا.",nop:"ما لقيتش منتوج فهاد الرابط. ممكن تكون صفحة لائحة، ولا الموقع كيتحمل بالجافاسكريبت. جرب رابط ديال منتوج واحد.",fail:"ما قدرتش نحل هاد الصفحة. تأكد من الرابط وعاود.",imgfail:"ما قدرتش نجيب الصورة المختارة. اختار وحدة أخرى ولا حط صورة ديالك.",saved:"✓ تحفظ المنتوج. تقدر تستورد واحد آخر.",newb:"استيراد منتوج آخر",none:"ما كاين حتى صورة (ضغط على صورة باش تختارها).",tabd:"استيراد منتوج من رابط: لصق الرابط، الذكاء الاصطناعي كيعمر المسودة، كتراجع وتحفظ."},
+fr:{t:"🔗 Importer un produit depuis un lien",n:"Collez le lien d'une page produit d'un petit site marocain. L'IA prépare un brouillon, vous vérifiez et enregistrez. Le prix, c'est vous qui l'écrivez.",go:"Récupérer le produit",busy:"⏳ Lecture de la page... (10 à 25 secondes)",il:"Photos proposées (touchez-en une, ou prenez votre propre photo / galerie) :",wl:"Ajouter mon logo sur la photo",hint:"💡 Prix de l'autre site (à titre indicatif, peut être ancien ou hors taxe) :",noprice:"💡 Aucun prix trouvé sur la page.",askp:"Entrez votre propre prix avant d'enregistrer.",w:"⚠ Les photos et textes d'autres sites ont des droits. La description est réécrite, mais la photo peut être protégée. Mieux vaut vos photos ou celles du fabricant. Vérifiez tout avant d'enregistrer.",weak:"⚠ Cette page n'a pas de données produit claires (peut-être une liste). Vérifiez le nom et la description.",noai:"L'IA n'a pas répondu: seul le nom est rempli. Utilisez le bouton brouillon IA pour la description.",ok:"✓ Brouillon prêt depuis ",bad:"Lien invalide (doit commencer par https://).",blocked:"Ce site est protégé et bloque la copie automatique (comme Jumia et Electroplanet). Essayez un autre site ou saisissez le produit à la main.",nop:"Aucun produit trouvé sur ce lien. C'est peut-être une page de liste, ou un site chargé par JavaScript. Essayez le lien d'un seul produit.",fail:"Impossible d'ouvrir cette page. Vérifiez le lien et réessayez.",imgfail:"Impossible de récupérer la photo choisie. Choisissez-en une autre ou ajoutez la vôtre.",saved:"✓ Produit enregistré. Vous pouvez en importer un autre.",newb:"Importer un autre produit",none:"Aucune photo (touchez une photo pour la choisir).",tabd:"Importer un produit depuis un lien : collez le lien, l'IA prépare le brouillon, vous vérifiez et enregistrez."},
+en:{t:"🔗 Import a product from a link",n:"Paste a product page link from a small Moroccan shop. The AI prepares a draft; you review and save. You enter the price yourself.",go:"Get the product",busy:"⏳ Reading the page... (10 to 25 seconds)",il:"Suggested photos (tap one, or use your own camera / gallery photo):",wl:"Add my logo on the photo",hint:"💡 Price on the other site (for information only, may be old or without tax):",noprice:"💡 No price found on the page.",askp:"Enter your own price before saving.",w:"⚠ Photos and text on other sites are protected by rights. The description is rewritten, but the photo may be protected. Best to use your own photos or the manufacturer's. Check everything before saving.",weak:"⚠ This page has no clear product data (maybe a list page). Check the name and description.",noai:"The AI did not answer: only the name is filled. Use the AI draft button for the description.",ok:"✓ Draft ready from ",bad:"Invalid link (must start with https://).",blocked:"This site is protected and blocks automatic copying (like Jumia and Electroplanet). Try another site or enter the product by hand.",nop:"No product found at this link. It may be a list page, or a site that loads with JavaScript. Try the link of a single product.",fail:"Could not open this page. Check the link and try again.",imgfail:"Could not fetch the chosen photo. Pick another one or add your own.",saved:"✓ Product saved. You can import another.",newb:"Import another product",none:"No photo (tap a photo to choose it).",tabd:"Import a product from a link: paste the link, the AI prepares the draft, you review and save."}};
 function IS(k){return (IMS[lang]||IMS.ar)[k]}
 var IMP=null;
-function impReset(){IMP=null;window.NOWM=0;$("impu").value="";$("impst").textContent="";$("impbox").style.display="none";$("impimgs").innerHTML="";$("imp").style.display=editing?"none":"block";impLang()}
-function impLang(){$("impt").textContent=IS("t");$("impn").textContent=IS("n");$("impgo").textContent=IS("go");$("impil").textContent=IS("il");$("impwl").textContent=IS("wl");$("impw").textContent=IS("w")}
-function impSel(i){IMP.sel=i;[].forEach.call($("impimgs").children,function(e,k){e.style.outline=k==i?"3px solid #4ade80":"3px solid transparent";e.style.opacity=k==i?"1":".7"})}
-$("impimgs").onclick=function(e){var im=e.target.closest("img");if(!im||!IMP)return;impSel(+im.dataset.i)};
+function icSync(){try{var c=$("ic").value,sv=$("is").value;$("ic").innerHTML=$("fc").innerHTML;$("is").innerHTML=$("fs").innerHTML;$("ic").value=c||"pc";$("is").value=sv}catch(e){}}
+function impLang(){$("impn").textContent=IS("n");$("impgo").textContent=IS("go");$("impil").textContent=IS("il");$("impwl").textContent=IS("wl");$("impw").textContent=IS("w");$("icancel").textContent=IS("newb");icSync()}
+function impReset(full){IMP=null;window.NOWM=0;$("impbox").style.display="none";$("impimgs").innerHTML="";["ina","inf","ine","ip","ida","idf","ide"].forEach(function(id){$(id).value=""});$("iff").value="";$("ifcam").value="";$("ipname").textContent="";$("ic").value="pc";$("is").value="";$("isw").style.display="none";if(full){$("impu").value="";$("impst").textContent=""}}
+function impSel(i){IMP.sel=i;[].forEach.call($("impimgs").children,function(e,k){e.style.outline=k==i?"3px solid #4ade80":"3px solid transparent";e.style.opacity=(i==null||k==i)?"1":".7"})}
+$("impimgs").onclick=function(e){var im=e.target.closest("img");if(!im||!IMP)return;var i=+im.dataset.i;impSel(IMP.sel==i?null:i)};
+$("ic").onchange=function(){$("isw").style.display=this.value=="pacc"?"block":"none"};
+$("ibcam").onclick=function(){$("iff").value="";$("ifcam").click()};
+$("ibgal").onclick=function(){$("ifcam").value="";$("iff").click()};
+function ipn(e){var f=e.target.files[0];$("ipname").textContent=f?"✔ "+f.name:""}
+$("ifcam").onchange=ipn;$("iff").onchange=ipn;
+$("icancel").onclick=function(){impReset(true)};
 $("impgo").onclick=function(){var u=$("impu").value.trim();if(!/^https?:\/\//i.test(u)){$("impst").textContent=IS("bad");return}
-  var b=$("impgo");b.disabled=true;b.style.opacity=".7";$("impst").textContent=IS("busy");$("impbox").style.display="none";IMP=null;
+  var b=$("impgo");b.disabled=true;b.style.opacity=".7";$("impst").textContent=IS("busy");impReset(false);
   fetch(SB+"/functions/v1/describe",{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+TOK,"Content-Type":"application/json"},body:JSON.stringify({a:"import",u:u})}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||r.status);return j})}).then(function(j){
     if(j.error){$("impst").textContent={bad_url:IS("bad"),blocked:IS("blocked"),no_product:IS("nop")}[j.error]||IS("fail");return}
     IMP={page:u,imgs:j.images||[],sel:0};
-    if(j.n){$("fna").value=j.n.ar||"";$("fnf").value=j.n.fr||"";$("fne").value=j.n.en||""}else{$("fna").value="";$("fnf").value=j.title||"";$("fne").value=""}
-    if(j.d){$("fda").value=j.d.ar||"";$("fdf").value=j.d.fr||"";$("fde").value=j.d.en||""}
-    if(j.c){$("fc").value=j.c;$("fsw").style.display=j.c=="pacc"?"block":"none";$("fs").value=j.s||""}
-    OP=0;$("fp").value="";$("fdp").value="";$("fdq").value="";
+    if(j.n){$("ina").value=j.n.ar||"";$("inf").value=j.n.fr||"";$("ine").value=j.n.en||""}else{$("inf").value=j.title||""}
+    if(j.d){$("ida").value=j.d.ar||"";$("idf").value=j.d.fr||"";$("ide").value=j.d.en||""}
+    if(j.c){$("ic").value=j.c;$("isw").style.display=j.c=="pacc"?"block":"none";$("is").value=j.s||""}
     var pr=parseFloat(j.price);$("imphint").innerHTML=pr>0?esc(IS("hint"))+" <b dir=\"ltr\">"+esc(Math.round(pr*100)/100+" "+(j.currency||""))+"</b><br>"+esc(IS("askp")):esc(IS("noprice"))+" "+esc(IS("askp"));
     $("impimgs").innerHTML=IMP.imgs.map(function(x,i){return '<img data-i="'+i+'" referrerpolicy="no-referrer" src="'+esc(x)+'" style="height:84px;min-width:84px;max-width:140px;object-fit:cover;border-radius:10px;background:#0006;cursor:pointer">'}).join("");
     $("impbox").style.display="block";if(IMP.imgs.length)impSel(0);
     $("impst").textContent=IS("ok")+j.host+(j.ai?"":" · "+IS("noai"))+(j.source=="jsonld"?"":" · "+IS("weak"));
-    $("pname").textContent="";$("aform").scrollIntoView();
+    $("impbox").scrollIntoView();
   }).catch(function(){$("impst").textContent=IS("fail")}).then(function(){b.disabled=false;b.style.opacity=""});
 };
-function impPhoto(cb){ // returns a Blob of the chosen candidate through the function (images block hotlinking and CORS)
+function impPhoto(cb){
   if(!IMP||!IMP.imgs.length||IMP.sel==null){cb(null);return}
   fetch(SB+"/functions/v1/describe",{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+TOK,"Content-Type":"application/json"},body:JSON.stringify({a:"img",u:IMP.imgs[IMP.sel],r:IMP.page})}).then(function(r){var ct=r.headers.get("content-type")||"";if(!r.ok||ct.indexOf("image/")!=0)throw 0;return r.blob()}).then(cb).catch(function(){alert(IS("imgfail"));cb(false)});
 }
+$("isave").onclick=function(){
+  var n={ar:$("ina").value.trim(),fr:$("inf").value.trim(),en:$("ine").value.trim()};
+  if(!n.ar&&!n.fr&&!n.en){alert(T("needname"));return}
+  var pr=parseFloat($("ip").value);if(!(pr>0)){alert(IS("askp"));return}
+  n.fr=n.fr||n.ar;n.en=n.en||n.fr||n.ar;n.ar=n.ar||n.fr||n.en;
+  var fin=function(img){
+    var d={c:$("ic").value,s:$("ic").value=="pacc"?$("is").value:"",n:n,p:pr,dp:0,img:img||"",wm:img?1:0,d:{ar:$("ida").value.trim(),fr:$("idf").value.trim(),en:$("ide").value.trim()}};
+    $("isave").disabled=true;
+    api("rpc/admin_save_product",{pass:PASS,pid:null,d:d}).then(function(){$("isave").disabled=false;impReset(true);$("impst").textContent=IS("saved");$("impst").scrollIntoView();return load()}).catch(function(e){$("isave").disabled=false;alert(e.message)});
+  };
+  var f=$("ifcam").files[0]||$("iff").files[0];
+  var go=function(bl){window.NOWM=$("impwm").checked?0:1;shrink(bl,function(d){window.NOWM=0;fin(d)})};
+  if(f){go(f);return}
+  if(IMP&&IMP.imgs.length&&IMP.sel!=null){$("isave").disabled=true;impPhoto(function(bl){$("isave").disabled=false;if(bl===false)return;if(!bl){fin("");return}go(bl)});return}
+  fin("");
+};
 applyLang();load();if(AUTOADMIN)adminOpen();
 
 $("fai").onclick=function(){var n={ar:$("fna").value.trim(),fr:$("fnf").value.trim(),en:$("fne").value.trim()};if(!n.ar&&!n.fr&&!n.en){alert(T("needname"));return}
@@ -767,7 +795,7 @@ var ra=window.renderAdmin;
 window.WMTRY=0;function auto(){try{var ov=document.getElementById("aov");if(!PASS||window.WMRUN||window.WMTRY>=2||!ov||!ov.classList.contains("open"))return;if(!todo().length)return;window.WMTRY++;window.WMAUTO=1;document.getElementById("wmall").click()}catch(e){}}
 setInterval(function(){lab();auto()},1500);lab();
 })();</script>
-<script>var SMB="45";
+<script>var SMB="46";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 <script>

@@ -485,9 +485,11 @@ function visC(a){var t=a.reduce(function(x,y){return x+y.n},0);if(!t){$("vcn").i
 function pkE(b){var u=new Uint8Array(b.buffer||b),s="";for(var i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")}
 function pkApi(b){return fetch(SB+"/functions/v1/passkey",{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+TOK,"Content-Type":"application/json"},body:JSON.stringify(b)}).then(function(r){return r.json().then(function(o){if(!r.ok||o.error)throw new Error(o.error||"error");return o})})}
 function pkOk(){return window.PublicKeyCredential&&navigator.credentials&&TOK}
-function pkShow(){$("pkunl").style.display=(pkOk()&&ls("sm_pk",""))?"block":"none"}
+function pkShow(){$("pkunl").style.display=(pkOk()&&ls("sm_pk",""))?"block":"none";try{pkPre()}catch(e){}}
+var PKC=null;function pkPre(){if(!pkOk()||!ls("sm_pk",""))return;if(PKC&&Date.now()-PKC.t<30000)return;var o={t:Date.now()};o.p=pkApi({a:"chal"});o.p.catch(function(){if(PKC===o)PKC=null});PKC=o}
 $("pkunl").onclick=function(){
-  pkApi({a:"chal"}).then(function(c){var id=ls("sm_pk","");
+  var pc=PKC&&Date.now()-PKC.t<30000?PKC.p:null;PKC=null;
+  (pc||pkApi({a:"chal"})).then(function(c){var id=ls("sm_pk","");
     return navigator.credentials.get({publicKey:{challenge:b64u(c.ch),rpId:c.rp,allowCredentials:[{type:"public-key",id:b64u(id)}],userVerification:"required",timeout:60000}}).then(function(a){var r=a.response;
       return pkApi({a:"login",ch:c.ch,id:pkE(a.rawId),cdj:pkE(r.clientDataJSON),ad:pkE(r.authenticatorData),sig:pkE(r.signature)})})}).then(function(o){PASS=o.token;showPanel()}).catch(function(e){if(e&&/unknown/.test(e.message))try{localStorage.removeItem("sm_pk")}catch(x){}pkShow();alert(T("pkFail"))})};
 function pkList(){if(!PASS)return;pkApi({a:"list",pass:PASS}).then(function(o){var me=ls("sm_pk","");$("pkl").innerHTML=o.list.length?o.list.map(function(d){return '<div class="pr"><span>'+esc(d.label||"device")+" · "+d.created_at.slice(0,10)+(d.id==me?" ✓":"")+'</span><button type="button" class="btn2" data-pd="'+esc(d.id)+'">'+T("pkDel")+'</button></div>'}).join(""):'<div style="opacity:.6;font-size:13px">'+T("pkNone")+'</div>'}).catch(function(){})}
@@ -717,7 +719,7 @@ var ra=window.renderAdmin;
 window.WMTRY=0;function auto(){try{var ov=document.getElementById("aov");if(!PASS||window.WMRUN||window.WMTRY>=2||!ov||!ov.classList.contains("open"))return;if(!todo().length)return;window.WMTRY++;window.WMAUTO=1;document.getElementById("wmall").click()}catch(e){}}
 setInterval(function(){lab();auto()},1500);lab();
 })();</script>
-<script>var SMB="42";
+<script>var SMB="43";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 <script>

@@ -381,9 +381,8 @@ function adminOpen(){
   pkShow();$("ghbox").style.display=TOK?"none":"block";$("pinbox").style.display=TOK?"block":"none";
   if(TOK)api("rpc/admin_is_set",{}).then(function(v){firstTime=!v;$("pinhint").textContent=firstTime?T("firstset"):""}).catch(function(){});
 }
-(function(){var n=0,t=0,lg=document.querySelector(".logo");lg.style.cursor="pointer";lg.style.touchAction="manipulation";lg.style.userSelect="none";lg.style.webkitUserSelect="none";lg.style.webkitTouchCallout="none";
-lg.addEventListener("click",function(){var now=Date.now();if(now-t>700)n=0;t=now;n++;if(n>=2){n=0;adminOpen()}})})();
-if(location.hash.replace("#","").split("&")[0]=="admin")setTimeout(adminOpen,300);
+
+if(location.hash.replace("#","").split("&")[0]=="admin-73d50a340c6f")setTimeout(adminOpen,300);
 $("bcam").onclick=function(){$("ff").value="";$("fcam").click()};
 $("bgal").onclick=function(){$("fcam").value="";$("ff").click()};
 function pn(e){var f=e.target.files[0];$("pname").textContent=f?"✔ "+f.name:""}
@@ -716,7 +715,7 @@ var ra=window.renderAdmin;
 window.WMTRY=0;function auto(){try{var ov=document.getElementById("aov");if(!PASS||window.WMRUN||window.WMTRY>=2||!ov||!ov.classList.contains("open"))return;if(!todo().length)return;window.WMTRY++;window.WMAUTO=1;document.getElementById("wmall").click()}catch(e){}}
 setInterval(function(){lab();auto()},1500);lab();
 })();</script>
-<script>var SMB="38";
+<script>var SMB="39";
 (function(){function go(){if(document.hidden)return;fetch(location.pathname+(location.search||""),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/var SMB="(\d+)"/);if(!m||m[1]==SMB)return;var k="sm_rl"+m[1];if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}).catch(function(){})}
 setTimeout(go,4000);document.addEventListener("visibilitychange",go);})();</script>
 <script>
